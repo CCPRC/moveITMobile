@@ -68,6 +68,24 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsClassController', {
+    url: '/tabsClass',
+    templateUrl: 'templates/classTabsController.html',
+    abstract: true
+  })
+
+  .state('tabsClassController.classInfo', {
+    url: '/page7',
+    views: {
+      'tab1': {
+        templateUrl: 'templates/classInfo.html',
+        controller: 'yogaClassCtrl'
+      }
+    }
+  })
+
+
+
   .state('login', {
     url: '/login',
     templateUrl: 'templates/login.html',

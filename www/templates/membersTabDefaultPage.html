@@ -1,9 +1,78 @@
-<ion-view title="Members Tab Default Page">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+<ion-view hide-nav-bar="true"  title="Members Tab Default Page">
+    <!-- <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list></ion-list>
         <ion-list>
-            <ion-item>William Costigan</ion-item>
-            <ion-item>Colin Sullivan</ion-item>
-            <ion-item>Sean Dignam</ion-item>
+            <ion-item ui-sref="tabsController.yogaClass">Yoga</ion-item>
+            <ion-item>Crossfit</ion-item>
+            <ion-item>Item 3</ion-item>
         </ion-list>
-    </ion-content>
+    </ion-content> -->
+    <ion-header-bar class="" style="height: 50px">
+
+    <div class="col text-left">
+    <h3 style="font-family: Raleway">Members</h3>
+  </div>
+  <div class="col text-center">
+  </div>
+  <!--   <div class="col text-right"> -->
+    <a href="#/search" style="text-decoration: none"><div id="glass" class="ion-search glass-icon" style="font-size:35px; margin-right: 5px; color: #d3d3d3 "></div></a>
+    <a ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:35px; margin-left: 5px; margin-right: 5px; color: #d3d3d3"></div></a>
+<!-- </div> -->
+<!-- <div class="assetTitle">ASSETS</div> -->
+   </ion-header-bar>
+    <ion-content class="padding">
+<ion-item ui-sref="tabsController.yogaClass" class="card">
+<!-- <div class="item-line-positive"></div> -->
+<div>
+<div class="row row-no-padding">
+<div class="col col-90">
+  <img src="img/blank-profile-picture-973460_640.png" style="width:80px; border-radius: 40px; display: inline-block" alt="">
+  <div style="display: inline-block; vertical-align: top; margin-top:25px">
+<h2>William Costigan </h2>
+  <p>Member</p>
+
+</div>
+</div>
+</div>
+</div>
+</ion-item>
+<ion-item ui-sref="tabsController.yogaClass" class="card">
+<!-- <div class="item-line-positive"></div> -->
+<div class="item item-text-wrap">
+<div class="row row-no-padding">
+<div class="col col-90">
+<h2 class="positive">Colin Sullivan </h2 >
+</div>
+<div class="col col-10">
+<!-- <i class="icon ion-ionic positive icon-bigger"></i>
+ --></div>
+</div>
+<p>
+Some content!
+</p>
+<p>
+Some other content!
+</p>
+</div>
+</ion-item>
+<ion-item ui-sref="tabsController.yogaClass" class="card">
+<!-- <div class="item-line-positive"></div> -->
+<div class="item item-text-wrap">
+<div class="row row-no-padding">
+<div class="col col-90">
+<h2 class="positive">Sean Dignam </h2 >
+</div>
+<div class="col col-10">
+<!-- <i class="icon ion-ionic positive icon-bigger"></i>
+ --></div>
+</div>
+<p>
+Some content!
+</p>
+<p>
+Some other content!
+</p>
+</div>
+</ion-item>
+</ion-content>
 </ion-view>
