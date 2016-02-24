@@ -1,0 +1,21 @@
+<ion-view hide-nav-bar="true" title="Login">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <form class="list">
+            <ion-list>
+              <h1 class="col text-center" style="font-size: 66px; font-family: Raleyway">MOVE I.T.</h1>
+              <br>
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="text" placeholder="">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
+            <a ui-sref="tabsController.classesTabDefaultPage" class="button button-stable button-block button-positive">Log in</a>
+            <a href="#" onclick="window.open('/signup', '_system', 'location=yes'); return false;" class="button button-positive button-clear button-block ">Or create an account</a>
+        </form>
+    </ion-content>
+</ion-view>
