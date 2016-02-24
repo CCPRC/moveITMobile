@@ -22,7 +22,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 
-body {
+body, html{
   font-family: 'Raleway', sans-serif;
 
 }
@@ -37,4 +37,18 @@ body {
 
 .dots-icon {
   color: #d3d3d3 ;
+}
+
+.info {
+  width: 30%;
+  display: inline-block;
+}
+
+.attendance {
+width: 40px;
+display: inline-block;
+}
+
+.info, .attendance {
+  display: inline-block;
 }
