@@ -52,21 +52,29 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.memberDetail', {
+    url: '/memberDetail',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/memberDetail.html',
+        controller: 'yogaClassCtrl'
+      }
+    }
+  })
+
   .state('tabsController', {
     url: '/page1',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
-  .state('tabsController.yogaClass', {
-    url: '/page6',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/yogaClass.html',
-        controller: 'yogaClassCtrl'
-      }
-    }
-  })
+  .state('classInfo', {
+      url: '/classInfo',
+      templateUrl: 'templates/classInfo.html',
+      controller: 'yogaClassCtrl'
+
+    })
+
 
   .state('tabsClassController', {
     url: '/tabsClass',
@@ -75,7 +83,7 @@ angular.module('app.routes', [])
   })
 
   .state('tabsClassController.classInfo', {
-    url: '/page7',
+    url: '/classInfo',
     views: {
       'tab1': {
         templateUrl: 'templates/classInfo.html',

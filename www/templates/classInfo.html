@@ -1,1 +1,64 @@
-<h1>class info</h1>
+<ion-view hide-nav-bar="true" title="Yoga Class">
+
+  <ion-header-bar class="bar-light" style="height: 100px">
+    <br>
+<a ui-sref="tabsController.classesTabDefaultPage" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-right: 15px; color: black"></div> </a>
+    <div style="float:left">
+    <h4 style="">Yoga</h4>
+  </div>
+
+    <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a>
+
+
+<br>
+<div style="width: 100%; position: absolute; left: 0px">
+  <div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
+<a href="#/page1/classes"></a>
+<div>INFO</div></a>
+<div style="width: 100%; border-top: 3px solid blue; top: 90px;"></div>
+</div>
+<div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
+<a href="#/page1/classes"></a>
+<div>ASSESSMENTS</div></a>
+</div>
+<div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
+<a href="#/page1/classes"></a>
+<div>ATTENDANCE</div></a>
+</div>
+</div>
+   </ion-header-bar>
+
+  <ion-content style="margin-top: 40px" overflow-scroll="true" padding="true" class="has-tabs-tops">
+    <div style="padding: 10px; margin: 20px; font-size: 15px">
+  <div class="col text-left">
+    <div class="gray">ID #</div>
+    <div class="bold">8809</div>
+  </div>
+  <div>
+  <div class="col text-left" style="display: inline-block; width: 50%;">
+    <div>Time</div>
+    <div>3:00 pm</div>
+    </div>
+    <div style="display: inline-block; vertical-align: top; width: 50%; float: right">
+      <div>Date</div>
+      <div>10. 11. 2015</div>
+   </div>
+   </div>
+    <div class="col text-left">
+      <div>Address</div>
+      <div>44 Main Street</div>
+    </div>
+    <div class="col text-left">
+      <div>City</div>
+      <div>Charleston</div>
+    </div>
+    <div class="col text-left">
+      <div>Zip Code</div>
+      <div>29403</div>
+    </div>
+  </div>
+
+
+    </ion-content>
+
+</ion-view>

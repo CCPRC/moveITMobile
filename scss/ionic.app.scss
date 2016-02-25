@@ -39,16 +39,19 @@ body, html{
   color: #d3d3d3 ;
 }
 
-.info {
-  width: 30%;
-  display: inline-block;
-}
-
-.attendance {
-width: 40px;
-display: inline-block;
-}
 
 .info, .attendance {
   display: inline-block;
+}
+
+.contentView {
+  margin-top: 150px;
+}
+
+.gray {
+  color: #d3d3d3
+}
+
+.bold {
+  font-weight: bold;
 }
