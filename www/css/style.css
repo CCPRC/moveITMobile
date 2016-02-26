@@ -5,3 +5,37 @@
 .bold {
   font-weight: bold;
 }
+
+.attend {
+  font-size: 20px;
+  color: blue;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 6px;
+  padding: 2px;
+
+}
+
+.attendImg {
+  width:45px;
+  border-radius: 40px;
+  display: inline-block;
+}
+
+.toggle .track {
+  height: 25px;
+}
+
+.toggle .handle {
+  height: 25px;
+}
+/* .toggle input:checked + .track {
+  border-color: green !important;
+  background-color: green !important;
+  color: green;
+}
+
+
+ .toggle input + .track{
+   background-color: #ef473a;
+ } */

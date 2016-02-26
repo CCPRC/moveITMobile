@@ -2,7 +2,7 @@
 
   <ion-header-bar class="bar-light" style="height: 100px">
     <br>
-<a ui-sref="tabsController.classesTabDefaultPage" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-right: 15px; color: black"></div> </a>
+<a ui-sref="tabsController.classesTabDefaultPage" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
     <div style="float:left">
     <h4 style="">Yoga</h4>
   </div>
@@ -16,24 +16,54 @@
   <a href="#/classInfo"><div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
 <div>INFO</div>
 </div></a>
-<a href="#/classAssessments">
-<div style="width: 32.5%; margin-top: 30px; color: black; display: inline-block; text-align: center">
-<div>ASSESSMENTS</div>
-</div></a>
-<a href="#/page1/classes">
+<a href="#/classAttendance">
 <div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
 <div>ATTENDANCE</div>
 <div style="width: 100%; border-top: 3px solid blue; top: 90px;"></div>
 </div></a>
+<a href="#/classAssessments">
+<div style="width: 32.5%; margin-top: 30px; color: black; display: inline-block; text-align: center">
+<div>ASSESSMENTS</div>
+</div></a>
+
 
 </div>
    </ion-header-bar>
 
   <ion-content style="margin-top: 40px" overflow-scroll="true" padding="true" class="has-tabs-tops">
     <ion-list>
-      <ion-item>William Costigan</ion-item>
-      <ion-item>Colin Sullivan</ion-item>
-      <ion-item>Sean Dignam</ion-item>
+      <ion-toggle style="height:70px" toggle-class="">
+        <div style="">
+        <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
+      <div class="attend"> William Costigan</div>
+    </div>
+      </ion-toggle>
+      <ion-toggle style="height:70px" toggle-class="">
+        <div style="">
+        <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
+      <div class="attend">Colin Sullivan</div>
+    </div>
+      </ion-toggle>
+      <ion-toggle style="height:70px" toggle-class="">
+        <div style="">
+        <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
+      <div class="attend">Sean Dignam</div>
+    </div>
+      </ion-toggle>
+      <ion-toggle style="height:70px" toggle-class="">
+        <div style="">
+        <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
+      <div class="attend">Captain Queenan</div>
+    </div>
+      </ion-toggle>
+      <ion-toggle style="height:70px" toggle-class="">
+        <div style="">
+        <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
+      <div class="attend">Frank Costello</div>
+    </div>
+      </ion-toggle>
+
+
     </ion-list>
 
 
