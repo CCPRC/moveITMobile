@@ -87,6 +87,12 @@ angular.module('app.routes', [])
         controller: 'yogaClassCtrl'
       })
 
+      .state('assessmentDetail', {
+          url: '/assessmentDetail',
+          templateUrl: 'templates/assessmentDetail.html',
+          controller: 'yogaClassCtrl'
+        })
+
 
   .state('tabsClassController', {
     url: '/tabsClass',
