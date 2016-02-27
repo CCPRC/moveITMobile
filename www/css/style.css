@@ -13,6 +13,7 @@
   vertical-align: top;
   margin-top: 6px;
   padding: 2px;
+  /* width: 300px; */
 
 }
 
@@ -30,8 +31,18 @@
   height: 25px;
 }
 
-input[type="text"] {
-   border-bottom: 1px solid black; 
+.assess {
+  display:inline-block;
+  width:40px;
+  float: right
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+.assess input[type="text"] {
+   border-bottom: 1px solid black;
  }
 /* .toggle input:checked + .track {
   border-color: green !important;
