@@ -81,6 +81,24 @@ angular.module('app.routes', [])
         controller: 'yogaClassCtrl'
     })
 
+    .state('classAssess', {
+        url: '/classAssess',
+        templateUrl: 'templates/classAssess.html',
+        controller: 'yogaClassCtrl'
+    })
+
+    .state('memberListAssess', {
+        url: '/memberListAssess',
+        templateUrl: 'templates/memberListAssess.html',
+        controller: 'yogaClassCtrl'
+    })
+
+    .state('assessMembers', {
+        url: '/assessMembers',
+        templateUrl: 'templates/assessMembers.html',
+        controller: 'yogaClassCtrl'
+    })
+
     .state('classAttendance', {
         url: '/classAttendance',
         templateUrl: 'templates/classAttendance.html',

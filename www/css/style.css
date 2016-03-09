@@ -17,6 +17,17 @@
 
 }
 
+.chair {
+  font-size: 15px;
+  color: blue;
+  display: inline-block;
+  /* vertical-align: top; */
+  /* margin-top: 5px; */
+  padding: 2px;
+  /* width: 300px; */
+
+}
+
 .attendImg {
   width:45px;
   border-radius: 40px;
@@ -37,6 +48,12 @@
   float: right
 }
 
+.stands {
+  display:inline-block;
+  width:55px;
+  float: right
+}
+
 .noUnderline {
   text-decoration: none;
 }
@@ -54,3 +71,15 @@
  .toggle input + .track{
    background-color: #ef473a;
  } */
+
+ .chairRight {
+   display: inline-block;
+   float: right;
+   vertical-align: top;
+   font-size: 20px;
+   color: green;
+ }
+
+.chairLeft{
+  display: inline-block;
+}
