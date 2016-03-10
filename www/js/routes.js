@@ -99,6 +99,12 @@ angular.module('app.routes', [])
         controller: 'yogaClassCtrl'
     })
 
+    .state('assessDrpopdown', {
+        url: '/assessDropdown',
+        templateUrl: 'templates/assessDropdown.html',
+        controller: 'yogaClassCtrl'
+    })
+
     .state('classAttendance', {
         url: '/classAttendance',
         templateUrl: 'templates/classAttendance.html',
