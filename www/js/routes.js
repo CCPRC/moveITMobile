@@ -21,6 +21,57 @@ angular.module('app.routes', [])
       }
     }
   })
+///////////////// Lightning Tab/////////////////////
+  .state('tabsController.classInfo' , {
+    url: '/classInfo',
+    views: {
+      'tab1' : {
+        templateUrl: 'templates/classInfo.html',
+        controller: 'classesTabDefaultPageCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.classAttendance' , {
+    url: '/classAttendance',
+    views: {
+      'tab1' : {
+        templateUrl: 'templates/classAttendance.html',
+        controller: 'classesTabDefaultPageCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.classAssess' , {
+    url: '/classAssess',
+    views: {
+      'tab1' : {
+        templateUrl: 'templates/classAssess.html',
+        controller: 'classesTabDefaultPageCtrl'
+      }
+    }
+  })
+///// /////////// Lightning Tab/////////////////////
+
+
+  // .state('classAssess', {
+  //     url: '/classAssess',
+  //     templateUrl: 'templates/classAssess.html',
+  //     controller: 'yogaClassCtrl'
+  // })
+
+  // .state('classAttendance', {
+  //     url: '/classAttendance',
+  //     templateUrl: 'templates/classAttendance.html',
+  //     controller: 'yogaClassCtrl'
+  //   })
+  // .state('classInfo', {
+  //     url: '/classInfo',
+  //     templateUrl: 'templates/classInfo.html',
+  //     controller: 'yogaClassCtrl'
+  //
+  //   })
+
 
   .state('tabsController.assessmentsTabDefaultPage', {
     url: '/assessments',
@@ -68,12 +119,7 @@ angular.module('app.routes', [])
     abstract:true
   })
 
-  .state('classInfo', {
-      url: '/classInfo',
-      templateUrl: 'templates/classInfo.html',
-      controller: 'yogaClassCtrl'
 
-    })
 
     .state('classAssessments', {
         url: '/classAssessments',
@@ -81,11 +127,7 @@ angular.module('app.routes', [])
         controller: 'yogaClassCtrl'
     })
 
-    .state('classAssess', {
-        url: '/classAssess',
-        templateUrl: 'templates/classAssess.html',
-        controller: 'yogaClassCtrl'
-    })
+
 
     .state('memberListAssess', {
         url: '/memberListAssess',
@@ -105,11 +147,7 @@ angular.module('app.routes', [])
         controller: 'yogaClassCtrl'
     })
 
-    .state('classAttendance', {
-        url: '/classAttendance',
-        templateUrl: 'templates/classAttendance.html',
-        controller: 'yogaClassCtrl'
-      })
+
 
       .state('assessmentDetail', {
           url: '/assessmentDetail',
