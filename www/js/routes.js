@@ -11,6 +11,7 @@ angular.module('app.routes', [])
   $stateProvider
 
 
+  ///////////////// Lightning Tab/////////////////////
 
       .state('tabsController.classesTabDefaultPage', {
     url: '/classes',
@@ -21,7 +22,6 @@ angular.module('app.routes', [])
       }
     }
   })
-///////////////// Lightning Tab/////////////////////
   .state('tabsController.classInfo' , {
     url: '/classInfo',
     views: {
@@ -73,26 +73,27 @@ angular.module('app.routes', [])
   //   })
 
 
-  .state('tabsController.assessmentsTabDefaultPage', {
-    url: '/assessments',
-    views: {
-      'tab2': {
-        templateUrl: 'templates/assessmentsTabDefaultPage.html',
-        controller: 'assessmentsTabDefaultPageCtrl'
-      }
-    }
-  })
+  // .state('tabsController.assessmentsTabDefaultPage', {
+  //   url: '/assessments',
+  //   views: {
+  //     'tab2': {
+  //       templateUrl: 'templates/assessmentsTabDefaultPage.html',
+  //       controller: 'assessmentsTabDefaultPageCtrl'
+  //     }
+  //   }
+  // })
 
-  .state('tabsController.measurementsTabDefaultPage', {
-    url: '/measurements',
-    views: {
-      'tab3': {
-        templateUrl: 'templates/measurementsTabDefaultPage.html',
-        controller: 'measurementsTabDefaultPageCtrl'
-      }
-    }
-  })
+  // .state('tabsController.measurementsTabDefaultPage', {
+  //   url: '/measurements',
+  //   views: {
+  //     'tab3': {
+  //       templateUrl: 'templates/measurementsTabDefaultPage.html',
+  //       controller: 'measurementsTabDefaultPageCtrl'
+  //     }
+  //   }
+  // })
 
+///////// HEAD TAB//////////////////////////////////
   .state('tabsController.membersTabDefaultPage', {
     url: '/members',
     views: {
@@ -113,19 +114,69 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.classAssessments', {
+    url: '/classAssessments',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/classAssessments.html',
+        controller: 'yogaClassCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.notes', {
+    url: '/notes',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/notes.html',
+        controller: 'yogaClassCtrl'
+      }
+    }
+  })
+
+
+  // .state('classAssessments', {
+  //     url: '/classAssessments',
+  //     templateUrl: 'templates/classAssessments.html',
+  //     controller: 'yogaClassCtrl'
+  // })
+
+///////// HEAD TAB//////////////////////////////////
+
   .state('tabsController', {
     url: '/page1',
     templateUrl: 'templates/tabsController.html',
     abstract:true
   })
 
+/////////////////Notifications TAB/////////////////
+  .state('tabsController.notiTabDefaultPage', {
+    url: '/notifications',
+    views: {
+      'tab2': {
+        templateUrl: 'templates/notiTabDefaultPage.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
 
 
-    .state('classAssessments', {
-        url: '/classAssessments',
-        templateUrl: 'templates/classAssessments.html',
-        controller: 'yogaClassCtrl'
-    })
+  /////////////////Notifications TAB/////////////////
+
+
+///////////////// MESSAGES TAB/////////////////////////
+
+  .state('tabsController.messageTabDefaultPage', {
+    url: '/messages',
+    views: {
+      'tab3': {
+        templateUrl: 'templates/messageTabDefaultPage.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
+/////////////////  MESSAGES TAB//////////////////
+
 
 
 
