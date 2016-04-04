@@ -31,6 +31,10 @@
    </ion-header-bar>
 
   <ion-content style="margin-top: 40px" overflow-scroll="true" padding="true" class="has-tabs-tops">
+    <br>
+    <div style="text-align: center; font-size: 25px">
+    {{date | date:'MM-dd-yyyy'}}</div>
+    <br>
     <ion-list>
       <ion-toggle style="height:70px" toggle-class="">
         <div style="">
@@ -68,5 +72,15 @@
 
 
     </ion-content>
+    <ion-footer-bar ng-click"saveAssess()" align-title="" class="bar-positive" style="height: 55px">
+       <div class="buttons">
+        <div style="font-size: 20px; margin-top: 10px; margin-left:5px">Add Walk Ins</div>
+      </div>
+      <h1 class="title" style="text-align: center"></h1>
+       <div class="buttons" ng-click="doSomething()">
+         <div style="font-size: 40px; margin-top: 10px">+</div>
+      </div>
+    </ion-footer-bar>
+
 
 </ion-view>
