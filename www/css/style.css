@@ -113,3 +113,7 @@
 }
  */
 .bar { background-image: none !important; }
+
+.location {
+  font-size: 15px;
+}
