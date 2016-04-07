@@ -126,6 +126,15 @@
 
 .upperTabLine {
   width: 100%;
-  border-top: 2px solid blue;
+  border-top: 2px solid #145fd7 !important;
   top: 90px;
+}
+
+.tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+  border-bottom: 2px solid #145fd7 !important;
+}
+
+.tabs-icon-top > .tabs .tab-item, .tabs-icon-top.tabs .tab-item, .tabs-icon-bottom > .tabs .tab-item, .tabs-icon-bottom.tabs .tab-item {
+  line-height: 12px !important;
+  height: 48px !important;
 }
