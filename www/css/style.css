@@ -117,3 +117,15 @@
 .location {
   font-size: 15px;
 }
+
+.fancy-line {
+    border-bottom:1px solid rgba(136,136,136,0.75);
+    position:relative;
+    background-color:#f4f4f4;
+}
+
+.upperTabLine {
+  width: 100%;
+  border-top: 2px solid blue;
+  top: 90px;
+}
