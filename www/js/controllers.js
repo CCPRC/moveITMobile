@@ -1,12 +1,36 @@
 angular.module('app.controllers', [])
 
-.controller('classesTabDefaultPageCtrl', function($scope) {
+.controller('classesTabDefaultPageCtrl', function($scope, $ionicFilterBar) {
 
   $scope.date = new Date();
 
+  $scope.showFilterBar = function () {
+    console.log("filter");
+     filterBarInstance = $ionicFilterBar.show({
+       //console.log("filter");
+       //items: vm.items,
+       //update: function (filteredItems) {
+         //vm.items = filteredItems; -->
+       //},
+       //filterProperties: 'description'
+     });
+   };
+
 })
 
-.controller('membersTabDefaultPageCtrl', function($scope) {
+.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar) {
+  $scope.showFilterBar = function () {
+    console.log("filter");
+     filterBarInstance = $ionicFilterBar.show({
+       //console.log("filter");
+       //items: vm.items,
+       //update: function (filteredItems) {
+         //vm.items = filteredItems; -->
+       //},
+       //filterProperties: 'description'
+     });
+   };
+
 
 })
 
@@ -18,8 +42,10 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('classCtrl', function($scope){
+.controller('classCtrl', function($scope, $ionicFilterBar){
   $scope.date = new Date();
+
+
 
 })
 
