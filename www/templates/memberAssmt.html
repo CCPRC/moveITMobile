@@ -2,33 +2,33 @@
 
   <ion-header-bar class="bar-light" style="height: 100px">
     <br>
- <a ui-sref="tabsController.membersTabDefaultPage" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
+ <a ui-sref="tabsController.classAssessments" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
     <div style="float:left">
     <h4 style="">Bryant Chappelle</h4>
   </div>
 
-    <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a>
+    <!-- <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a> -->
 
 
  <br>
 
- <div style="width: 100%; position: absolute; left: 0px">
+  <div style="width: 100%; position: absolute; left: 0px">
   <a ui-sref="tabsController.memberDetail"><div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
- <div>INFO</div>
- </div></a>
+<!--  <div>INFO</div>
+--> </div></a>
  <a ui-sref="tabsController.notes">
  <div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
- <div>NOTES</div>
- </div></a>
+<!--  <div>NOTES</div>
+--> </div></a>
  <a ui-sref="tabsController.classAssessments">
  <div style="width: 32.5%; margin-top: 30px; color: black; display: inline-block; text-align: center">
- <div>ASSESSMENTS</div>
- <div class="upperTabLine"style=""></div>
+<!--  <div>ASSESSMENTS</div>
+--> <!-- <div class="upperTabLine"style=""></div> -->
  </div></a>
  <div class="fancy-line"></div>
 
 
- </div>
+</div>
    </ion-header-bar>
   <ion-content style="margin-top: 40px" overflow-scroll="true" padding="true" class="has-header">
 
@@ -48,117 +48,118 @@
          <!-- <ion-list> -->
              <label class="item item-input assetItem">
                  <span class="input-label">Location</span>
-                 <input type="text" placeholder="" ng-model="form.location">
+                 <input type="text" placeholder="" ng-model="memberAssessment.location">
              </label>
-             <div class="assetListLine"></div>
-       <!-- </ion-list> -->
-       <label class="item item-input assetItem" ng-click="openDatePicker()">
-        <span class="input-label">Date</span>
-        <div id="received_date">{{form.received_date | date: MM/dd/yyyy}}</div>
-    </label>
+            <!--  <div class="assetListLine"></div>
+                   </ion-list>
+                   <label class="item item-input assetItem" ng-click="openDatePicker()">
+                    <span class="input-label">Date</span>
+                    <div id="received_date">{{memberAssessment.received_date | date: MM/dd/yyyy}}</div>
+                </label> -->
+
                <div class="assetListLine"></div>
              <label class="item item-input assetItem">
                  <span class="input-label">Class</span>
-                 <input type="text" placeholder="" ng-model="form.class">
+                 <input type="text" placeholder="" ng-model="memberAssessment.class">
              </label>
                <div class="assetListLine"></div>
              <label class="item item-input assetItem">
                  <span class="input-label">Trainer</span>
-                 <input type="text" placeholder="" ng-model="form.trainer">
+                 <input type="text" placeholder="" ng-model="memberAssessment.trainer">
              </label>
 
            <div class="assetListLine"></div>
          <label class="item item-input assetItem">
              <span class="input-label">Chair Stand Test</span>
-             <input type="number" placeholder="in 30 seconds" ng-model="form.chairStandTest">
+             <input type="number" placeholder="in 30 seconds" ng-model="memberAssessment.chairTest">
          </label>
            <!-- <div class="assetListLine"></div>
                     <ion-toggle class="assetItem" ng-model="$scope.warranty['hasWarranty']" toggle-class="toggle-positive" ng-change="updateWaranty()">Warranty</ion-toggle> -->
            <div class="assetListLine"></div>
          <label class="item item-input assetItem">
              <span class="input-label">Chair Stand Test</span>
-             <input type="text" placeholder="inches" ng-model="form.serial_number">
+             <input type="text" placeholder="inches" ng-model="memberAssessment.chairTest1">
          </label>
            <div class="assetListLine"></div>
          <label class="item item-input assetItem">
              <span class="input-label">Chair Stand Test</span>
-             <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+             <input type="text" placeholder="inches" ng-model="memberAssessment.chairTest2">
          </label>
 
 
          <div class="assetListLine"></div>
        <label class="item item-input assetItem">
            <span class="input-label">Six Minute Walk</span>
-           <input type="text" placeholder="in 30 seconds" ng-model="form.serial_number">
+           <input type="text" placeholder="in 30 seconds" ng-model="memberAssessment.sixMinWalk">
        </label>
          <div class="assetListLine"></div>
        <label class="item item-input assetItem">
            <span class="input-label">Eight Foot Up and Go</span>
-           <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+           <input type="text" placeholder="inches" ng-model="memberAssessment.eightFoot1">
        </label>
        <div class="assetListLine"></div>
      <label class="item item-input assetItem">
          <span class="input-label">Eight Foot Up and Go</span>
-         <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+         <input type="text" placeholder="inches" ng-model="fmemberAssessment.eightFoot2">
      </label>
      <div class="assetListLine"></div>
      <label class="item item-input assetItem">
        <span class="input-label">Turn Test 360 Right</span>
-       <input type="text" placeholder="steps" ng-model="form.chairStandTest">
+       <input type="text" placeholder="steps" ng-model="memberAssessment.turnRight">
      </label>
      <div class="assetListLine"></div>
    <label class="item item-input assetItem">
        <span class="input-label">Turn Test 360 Left</span>
-       <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+       <input type="text" placeholder="inches" ng-model="memberAssessment.turnLeft">
    </label>
    <div class="assetListLine"></div>
    <label class="item item-input assetItem">
      <span class="input-label">Stand On One Leg</span>
-     <input type="text" placeholder="steps" ng-model="form.chairStandTest">
+     <input type="text" placeholder="steps" ng-model="memberAssessment.standOneLeg">
    </label>
    <div class="assetListLine"></div>
  <label class="item item-input assetItem">
      <span class="input-label">Arm Curl</span>
-     <input type="text" placeholder="in 30 seconds" ng-model="form.chairStandTest">
+     <input type="text" placeholder="in 30 seconds" ng-model="memberAssessment.armCurl">
  </label>
  <div class="assetListLine"></div>
 <label class="item item-input assetItem">
    <span class="input-label">Height</span>
-   <input type="text" placeholder="ft" ng-model="form.chairStandTest">
+   <input type="text" placeholder="ft" ng-model="memberAssessment.heightFt">
 </label>
 <div class="assetListLine"></div>
 <label class="item item-input assetItem">
   <span class="input-label">Height</span>
-  <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+  <input type="text" placeholder="inches" ng-model="memberAssessment.heightIn">
 </label>
 <div class="assetListLine"></div>
 <label class="item item-input assetItem">
   <span class="input-label">Weight</span>
-  <input type="text" placeholder="lbs" ng-model="form.chairStandTest">
+  <input type="text" placeholder="lbs" ng-model="memberAssessment.weight">
 </label>
 <div class="assetListLine"></div>
 <label class="item item-input assetItem">
   <span class="input-label">Systolic</span>
-  <input type="text" placeholder="" ng-model="form.chairStandTest">
+  <input type="text" placeholder="" ng-model="memberAssessment.systolic">
 </label>
 <div class="assetListLine"></div>
 <label class="item item-input assetItem">
   <span class="input-label">Diastolic</span>
-  <input type="text" placeholder="" ng-model="form.chairStandTest">
+  <input type="text" placeholder="" ng-model="memberAssessment.diastolic">
 </label>
 <div class="assetListLine"></div>
 <label class="item item-input assetItem">
   <span class="input-label">Waist Circumference</span>
-  <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+  <input type="text" placeholder="inches" ng-model="memberAssessment.waistCirc">
 </label>
 <div class="assetListLine"></div>
 <label class="item item-input assetItem">
   <span class="input-label">Hip Circumference</span>
-  <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+  <input type="text" placeholder="inches" ng-model="memberAssessment.hipCirc">
 </label>
 <div class="assetListLine"></div>
 
-<div ng-click="postNewFind()" style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Submit</div></div>
+<div ng-click="addNewAssessment()" style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Submit</div></div>
 
 
 

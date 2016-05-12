@@ -18,7 +18,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar) {
+.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, assetService) {
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
@@ -31,35 +31,96 @@ angular.module('app.controllers', [])
      });
    };
 
-   $scope.addNewAssessment = function (memberAssessment) {
+  // var newAssessment = {}
 
-    var newAssessment = {}
-    newAssessment = {
-      'location': memberAssessment.locationVal,
-      'class': memberAssessment.class,
-      'time': memberAssessment.time,
-      'trainer': memberAssessment.trainer,
-      'chairTest': memberAssessment.chairTest,
-      'chairTest1': memberAssessment.chairTest1,
-      'chairTest2': memberAssessment.chairTest2,
-      'sixMinWalk': memberAssessment.sixMinWalk,
-      'eightFoot1': memberAssessment.eightFoot1,
-      'eightFoot2': memberAssessment.eightFoot2,
-      'turnRight': memberAssessment.turnRight,
-      'turnLeft': memberAssessment.turnLeft,
-      'armCurl': memberAssessment.armCurl,
-      'heightFt': memberAssessment.heightFt,
-      'heightIn': memberAssessment.heightIn,
-      'weight': memberAssessment.weight,
-      'diastolic': memberAssessment.diastolic,
-      'systolic': memberAssessment.systolic,
-      'waistCirc': memberAssessment.waistCirc,
-      'hipCirc': memberAssessment.hipCirc,
-      'date': memberAssessment.date,
-      'type': 'assessment',
-      'parent_id': $scope.currentMember._id
-    }
+   $scope.memberAssessment = {
+     'location': '',
+     'class': '',
+     'time': '',
+     'trainer': '',
+     'chairTest': '',
+     'chairTest1': '',
+     'chairTest2': '',
+     'sixMinWalk': '',
+     'eightFoot1': '',
+     'eightFoot2': '',
+     'turnRight': '',
+     'turnLeft': '',
+     'armCurl': '',
+     'heightFt':'',
+     'heightIn': '',
+     'weight': '',
+     'diastolic': '',
+     'systolic': '',
+     'waistCirc': '',
+     'hipCirc': '',
+     'date': new Date().toISOString(),
+     //'type': 'assessment',
+     //'parent_id': $scope.currentMember._id
+     'parent_id': "363409ecdc9e546b409605465421c7e6"
+   }
+
+
+   $ionicPlatform.ready(function() {
+         assetService.initDB();
+
+       // Get all asset records from the database.
+        assetService.getAllAssets().then(function(assets) {
+          $scope.assets = assets;
+           console.log($scope.assets)
+       });
+   });
+
+
+   $scope.addNewAssessment = function () {
+
+   console.log($scope.memberAssessment);
+
+   assetService.addAsset($scope.memberAssessment);
 }
+
+
+//memberAssessment.date = new Date().toISOString();
+
+$scope.newScan = {};
+
+  $scope.$watch('newScan.receivedDate', function(unformattedDate){
+      $scope.newScan.formattedReceivedDate = $filter('date')(unformattedDate, 'dd/MM/yyyy HH:mm');
+      });
+
+
+$scope.openDatePicker = function() {
+$scope.tmp = {};
+$scope.tmp.newDate = $scope.newAssessment.receivedDate;
+
+var receivedDatePopup = $ionicPopup.show({
+  template: '<datetimepicker ng-model="tmp.newDate"></datetimepicker>',
+  title: "Received date",
+  scope: $scope,
+  buttons: [
+    { text: 'Cancel' },
+    {
+   text: '<b>Save</b>',
+   type: 'button-positive',
+   onTap: function(e) {
+     $scope.newScan.receivedDate = $scope.tmp.newDate;
+     console.log($scope.tmp.newDate);
+     var rDate = $scope.newScan.receivedDate;
+     $scope.isoDate = rDate.toISOString();
+   //  console.log($scope.isoDate);
+     $scope.form.received_date = $scope.isoDate
+   //  console.log($scope.form.received_date);
+     // localStorage.setItem("received_date", ISO2);
+
+   }
+ }
+]
+});
+}
+
+
+
+
 
 })
 

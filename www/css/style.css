@@ -161,3 +161,11 @@
   margin-top: 35px
 
 }
+
+.popup-body .datetimepicker {
+  min-height: 221px;
+}
+.popup-body .datetimepicker table {
+  width: 100%;
+}
+/

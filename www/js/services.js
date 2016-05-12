@@ -1,6 +1,6 @@
-var url = 'https://trans-fats.herokuapp.com';
+var url = 'https://rhinogram:lincs2015@couchdb.lincs.io/move_it/assessments/create';
 //var token = null
-var token = "d72dbf727a40fe685743d9790399847970cb59c56a46202f6dc18c3287f7b22f";
+var token = "yFAtKXbVXNIkZlAMLwYTlzfgZuKKzD3G";
 var profile = null;
 
 var _options = {
@@ -11,37 +11,24 @@ var _options = {
 };
 
 var _setDefaults = function (doc) {
-  doc.user_id = 1;
-  doc.location_id = 1;
-  doc.division_id = "South";
-  doc.condition = "GD";
-  doc.category_id = parseInt(doc.category_id);
-  doc.person_responsible_id = parseInt(doc.person_responsible_id);
-  doc.received_date =  !doc.received_date ? (new Date()).toISOString() : doc.received_date;
+  // doc.user_id = 1;
+  // doc.location_id = 1;
+  // doc.division_id = "South";
+  // doc.condition = "GD";
+  // doc.category_id = parseInt(doc.category_id);
+  // doc.person_responsible_id = parseInt(doc.person_responsible_id);
+  // doc.received_date =  !doc.received_date ? (new Date()).toISOString() : doc.received_date;
   return doc;
 };
 
 
 angular.module('app.services', [])
 
-.factory('authSvc', function($http) {
-  return {
-    login: function (acct) {
-      return $http.post(url + '/login', acct)
-        .then(function (result) {
-          token = result.data.access_token;
-          profile = result.data;
-          return { ok: true};
-        });
-    }
-  };
-})
-
 .factory('assetService', function($q, $http, $state, $stateParams) {
 
         var _db;
         var _assets;
-        var _scansUrl = 'https://trans-fats.herokuapp.com/api/scans';
+        var _scansUrl = 'https://rhinogram:lincs2015@couchdb.lincs.io/move_it/assessments/create';
 
         return {
             initDB: initDB,
@@ -50,7 +37,7 @@ angular.module('app.services', [])
             addAsset: addAsset,
             updateAsset: updateAsset,
             deleteAsset: deleteAsset,
-            postLeftAssets: postLeftAssets,
+          //  postLeftAssets: postLeftAssets,
             sendUpdate: sendUpdate
 
         };
@@ -68,7 +55,7 @@ angular.module('app.services', [])
 
             .then(function (res) {
               console.log(res);
-              resetState();
+            //  resetState();
               //console.log(asset._id);
               // state should not be in a service, it should be in the controller
             //  $state.go($state.current, $stateParams, {reload: true, inherit: false});
