@@ -138,3 +138,26 @@
   line-height: 12px !important;
   height: 48px !important;
 }
+
+
+.suggestionBubble {
+  font-size: 12px;
+  background-color: #145fd7 ;
+  color: white;
+  margin: 10px 10px 10px 0px;
+  display: inline-block;
+  padding: 10px 20px 10px 20px;
+  font-size: 20px;
+}
+
+.assetListLine {
+  width: 100%;
+  border-top: 3px solid #a8a8a8;
+  top: 90px;
+}
+
+.assetItem {
+  border: none;
+  margin-top: 35px
+
+}

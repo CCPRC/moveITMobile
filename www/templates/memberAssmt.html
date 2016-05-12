@@ -1,0 +1,196 @@
+<ion-view hide-nav-bar="true"  title="Assessments Tab Default Page">
+
+  <ion-header-bar class="bar-light" style="height: 100px">
+    <br>
+ <a ui-sref="tabsController.membersTabDefaultPage" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
+    <div style="float:left">
+    <h4 style="">Bryant Chappelle</h4>
+  </div>
+
+    <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a>
+
+
+ <br>
+
+ <div style="width: 100%; position: absolute; left: 0px">
+  <a ui-sref="tabsController.memberDetail"><div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
+ <div>INFO</div>
+ </div></a>
+ <a ui-sref="tabsController.notes">
+ <div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
+ <div>NOTES</div>
+ </div></a>
+ <a ui-sref="tabsController.classAssessments">
+ <div style="width: 32.5%; margin-top: 30px; color: black; display: inline-block; text-align: center">
+ <div>ASSESSMENTS</div>
+ <div class="upperTabLine"style=""></div>
+ </div></a>
+ <div class="fancy-line"></div>
+
+
+ </div>
+   </ion-header-bar>
+  <ion-content style="margin-top: 40px" overflow-scroll="true" padding="true" class="has-header">
+
+ <!-- <ion-content overflow-scroll="true" padding="true" class="has-header; assetView"> -->
+     <form class="list">
+       <ion-item style="height: 100px; border: none;">
+       <div class="assetLeft">
+       <!-- <a ng-click="startScan()"></a> -->
+      <div style="margin-top: 15px; margin-bottom: 15px; color:#6CACE4; font-weight: bold">New Assessment</div>
+       <!-- <div type="text" ng-model="form.barcode" style="font-size: 35px; font-weight: bold; margin-top: 5px">{{form.barcode}}</div> -->
+       </div>
+       <!-- <div class="assetRight">
+       <a ng-click="startScan()" style="text-decoration: none"><div class="icon ion ion-ios-barcode-outline" style="font-size:55px; margin-right: 5px"></div></a>
+       </div> -->
+       </ion-item>
+         <div style="width: 100%; border-top: 3px solid #ededed; top: 80px;"></div>
+         <!-- <ion-list> -->
+             <label class="item item-input assetItem">
+                 <span class="input-label">Location</span>
+                 <input type="text" placeholder="" ng-model="form.location">
+             </label>
+             <div class="assetListLine"></div>
+       <!-- </ion-list> -->
+       <label class="item item-input assetItem" ng-click="openDatePicker()">
+        <span class="input-label">Date</span>
+        <div id="received_date">{{form.received_date | date: MM/dd/yyyy}}</div>
+    </label>
+               <div class="assetListLine"></div>
+             <label class="item item-input assetItem">
+                 <span class="input-label">Class</span>
+                 <input type="text" placeholder="" ng-model="form.class">
+             </label>
+               <div class="assetListLine"></div>
+             <label class="item item-input assetItem">
+                 <span class="input-label">Trainer</span>
+                 <input type="text" placeholder="" ng-model="form.trainer">
+             </label>
+
+           <div class="assetListLine"></div>
+         <label class="item item-input assetItem">
+             <span class="input-label">Chair Stand Test</span>
+             <input type="number" placeholder="in 30 seconds" ng-model="form.chairStandTest">
+         </label>
+           <!-- <div class="assetListLine"></div>
+                    <ion-toggle class="assetItem" ng-model="$scope.warranty['hasWarranty']" toggle-class="toggle-positive" ng-change="updateWaranty()">Warranty</ion-toggle> -->
+           <div class="assetListLine"></div>
+         <label class="item item-input assetItem">
+             <span class="input-label">Chair Stand Test</span>
+             <input type="text" placeholder="inches" ng-model="form.serial_number">
+         </label>
+           <div class="assetListLine"></div>
+         <label class="item item-input assetItem">
+             <span class="input-label">Chair Stand Test</span>
+             <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+         </label>
+
+
+         <div class="assetListLine"></div>
+       <label class="item item-input assetItem">
+           <span class="input-label">Six Minute Walk</span>
+           <input type="text" placeholder="in 30 seconds" ng-model="form.serial_number">
+       </label>
+         <div class="assetListLine"></div>
+       <label class="item item-input assetItem">
+           <span class="input-label">Eight Foot Up and Go</span>
+           <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+       </label>
+       <div class="assetListLine"></div>
+     <label class="item item-input assetItem">
+         <span class="input-label">Eight Foot Up and Go</span>
+         <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+     </label>
+     <div class="assetListLine"></div>
+     <label class="item item-input assetItem">
+       <span class="input-label">Turn Test 360 Right</span>
+       <input type="text" placeholder="steps" ng-model="form.chairStandTest">
+     </label>
+     <div class="assetListLine"></div>
+   <label class="item item-input assetItem">
+       <span class="input-label">Turn Test 360 Left</span>
+       <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+   </label>
+   <div class="assetListLine"></div>
+   <label class="item item-input assetItem">
+     <span class="input-label">Stand On One Leg</span>
+     <input type="text" placeholder="steps" ng-model="form.chairStandTest">
+   </label>
+   <div class="assetListLine"></div>
+ <label class="item item-input assetItem">
+     <span class="input-label">Arm Curl</span>
+     <input type="text" placeholder="in 30 seconds" ng-model="form.chairStandTest">
+ </label>
+ <div class="assetListLine"></div>
+<label class="item item-input assetItem">
+   <span class="input-label">Height</span>
+   <input type="text" placeholder="ft" ng-model="form.chairStandTest">
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Height</span>
+  <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Weight</span>
+  <input type="text" placeholder="lbs" ng-model="form.chairStandTest">
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Systolic</span>
+  <input type="text" placeholder="" ng-model="form.chairStandTest">
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Diastolic</span>
+  <input type="text" placeholder="" ng-model="form.chairStandTest">
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Waist Circumference</span>
+  <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Hip Circumference</span>
+  <input type="text" placeholder="inches" ng-model="form.chairStandTest">
+</label>
+<div class="assetListLine"></div>
+
+<div ng-click="postNewFind()" style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Submit</div></div>
+
+
+
+          <!--  <div class="assetListLine"></div>
+          <label class="item item-select assetItem">
+           <span class="input-label">Department</span>
+           <select name="department_id" id="department_id" ng-model="form.department_id" ng-value="form.department_id">
+             <option ng-repeat="deptOption in deptOptions">{{deptOption.name}}</option>
+             </select>
+                    </label>
+          <div class="assetListLine"></div>
+          <label class="item item-select assetItem">
+            <span class="input-label">Person Responsible </span>
+
+             <select name="person_responsible_id" id="person_responsible_id" ng-model="form.person_responsible_id"  ng-value="form.person_responsible_id">
+                  <option value="1">Philip J Fry</option>
+                  <option value="2">Amy Wong</option>
+                  <option value="3">Dr. Zoidberg</option>
+              </select>
+          </label>
+          <div class="assetListLine"></div>
+          <label class="item item-select assetItem">
+                <span class="input-label">Category</span>
+                  <select name="category_id" id="category_id" ng-model="form.category_id" ng-value="form.category_id">
+                    <option value= "1">Computer</option>
+                    <option value= "2">Robots</option>
+                    <option value= "3">Spaceship</option>
+                  </select>
+                </label> -->
+<!--            <div class="assetListLine"></div>
+ -->       <!--   <a href="#/tabs/page11"><button class="button button-stable button-block ">Close</button></a> -->
+     </form>
+     <div style="height: 40px"></div>
+
+  </ion-view>

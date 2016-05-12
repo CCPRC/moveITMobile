@@ -124,6 +124,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.memberAssmt', {
+    url: '/memberAssmt',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/memberAssmt.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
+
   .state('tabsController.notes', {
     url: '/notes',
     views: {
