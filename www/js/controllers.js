@@ -18,7 +18,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, assetService) {
+.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, assetService, $state, $ionicModal) {
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
@@ -31,6 +31,17 @@ angular.module('app.controllers', [])
      });
    };
 
+
+   $scope.showEditView = function (b) {
+
+     console.log(b);
+
+    // $state.go('tabsController.editAssmt')
+         $scope.currentAssessment = b;
+      ///   $scope.action = 'Edit';
+      //   $scope.isAdd = false;
+         $scope.editModal.show()
+       }
   // var newAssessment = {}
 
    $scope.memberAssessment = {
@@ -55,7 +66,7 @@ angular.module('app.controllers', [])
      'waistCirc': '',
      'hipCirc': '',
      'date': new Date().toISOString(),
-     //'type': 'assessment',
+     'type': 'assessments',
      //'parent_id': $scope.currentMember._id
      'parent_id': "363409ecdc9e546b409605465421c7e6"
    }
@@ -71,6 +82,12 @@ angular.module('app.controllers', [])
        });
    });
 
+   $ionicModal.fromTemplateUrl('templates/editAssmt.html', {
+         scope: $scope,
+         animation: 'slide-in-up'
+     }).then(function(modal) {
+         $scope.editModal = modal;
+     });
 
    $scope.addNewAssessment = function () {
 
@@ -79,6 +96,11 @@ angular.module('app.controllers', [])
    assetService.addAsset($scope.memberAssessment);
 }
 
+
+$scope.hideEditModal = function() {
+    console.log("clicked");
+    $scope.editModal.hide();
+    }
 
 //memberAssessment.date = new Date().toISOString();
 

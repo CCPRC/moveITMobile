@@ -119,7 +119,7 @@ angular.module('app.routes', [])
     views: {
       'tab4': {
         templateUrl: 'templates/classAssessments.html',
-        controller: 'yogaClassCtrl'
+        controller: 'membersTabDefaultPageCtrl'
       }
     }
   })
@@ -129,6 +129,16 @@ angular.module('app.routes', [])
     views: {
       'tab4': {
         templateUrl: 'templates/memberAssmt.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.editAssmt', {
+    url: '/editAssmt',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/editAssmt.html',
         controller: 'membersTabDefaultPageCtrl'
       }
     }

@@ -31,9 +31,42 @@
 </div>
    </ion-header-bar>
 
-   <ion-content style="margin-top: 40px" class="padding">
+   <ion-content style="margin-top: 80px" class="assetView" overflow-scroll="true" padding="true" class="has-tabs-tops">
+         <ion-list>
+
+                 <ion-item ng-repeat="b in assets track by $index"   ng-click="showEditView(b)">
+                   <div class="assetLeft">
+                   <p style="font-weight: bold">Location:&nbsp{{b.location}}</p>
+                   <p>Class:&nbsp{{b.class}}</p>
+                   </div>
+                   <div class="assetRight">
+                  <p>{{b.date| date:"dd MMMM yyyy"}}</p>
+                   <p>{{b.department_id}}</p>
+                   </div>
+                 </ion-item>
+                 <!-- <a href="#/assessmentDetail" class="noUnderline"><ion-item class="card">
+                 <div class="item-line-positive"></div>
+                 <div class="item item-text-wrap">
+                 <div class="row row-no-padding">
+                 <div class="col col-90">
+                 <h2 class="positive chairLeft">{{b.date}} </h2>
+                 <div class="chairRight">+1</div>
+                 </div>
+                 <div class="col col-10">
+                 <i class="icon ion-ionic positive icon-bigger"></i></div>
+                 </div>
+                 <br>
+                 <div>
+                 <p>Last Result: 6 in 30 seconds </p>
+                 <p>Date: 02. 12. 15</p>
+                 </div>
+                 </div>
+                 </ion-item></a> -->
+          </ion-list>
+
+<!--    <ion-content style="margin-top: 40px" class="padding">
  <a href="#/assessmentDetail" class="noUnderline"><ion-item class="card">
- <!-- <div class="item-line-positive"></div> -->
+ <div class="item-line-positive"></div>
  <div class="item item-text-wrap">
  <div class="row row-no-padding">
  <div class="col col-90">
@@ -41,8 +74,7 @@
  <div class="chairRight">+1</div>
  </div>
  <div class="col col-10">
- <!-- <i class="icon ion-ionic positive icon-bigger"></i>
- --></div>
+ <i class="icon ion-ionic positive icon-bigger"></i></div>
  </div>
  <br>
  <div>
@@ -52,7 +84,7 @@
  </div>
  </ion-item></a>
  <ion-item class="card">
- <!-- <div class="item-line-positive"></div> -->
+ <div class="item-line-positive"></div>
  <div class="item item-text-wrap">
  <div class="row row-no-padding">
  <div class="col col-90">
@@ -60,8 +92,7 @@
  <div class="chairRight">+1</div>
  </div>
  <div class="col col-10">
- <!-- <i class="icon ion-ionic positive icon-bigger"></i>
- --></div>
+ <i class="icon ion-ionic positive icon-bigger"></i></div>
  </div>
  <br>
  <div>
@@ -71,7 +102,7 @@
  </div>
  </ion-item>
  <ion-item class="card">
- <!-- <div class="item-line-positive"></div> -->
+ <div class="item-line-positive"></div>
  <div class="item item-text-wrap">
  <div class="row row-no-padding">
  <div class="col col-90">
@@ -79,8 +110,7 @@
  <div class="chairRight">+1</div>
  </div>
  <div class="col col-10">
- <!-- <i class="icon ion-ionic positive icon-bigger"></i>
- --></div>
+ <i class="icon ion-ionic positive icon-bigger"></i></div>
  </div>
  <br>
  <div>
@@ -89,7 +119,7 @@
  </div>
  </div>
  </ion-item>
- </ion-content>
+ </ion-content> -->
  <ion-footer-bar ng-click"saveAssess()" align-title="" class="bar-positive" style="height: 55px">
     <div class="buttons">
      <div style="font-size: 20px; margin-top: 10px; margin-left:5px">Add New</div>
