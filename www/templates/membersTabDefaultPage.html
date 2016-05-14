@@ -22,6 +22,11 @@
 <!-- <div class="assetTitle">ASSETS</div> -->
    </ion-header-bar>
     <ion-content class="padding">
+     <ul>
+       <li ng-repeat="member in members">
+         <div>{{member.firstName}} {{member.lastName}} {{member.birthMonth}}</div>
+       </li>
+     </ul>
 <ion-item ui-sref="tabsController.memberDetail" class="card">
 <!-- <div class="item-line-positive"></div> -->
 <div>

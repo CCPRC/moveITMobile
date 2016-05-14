@@ -1,12 +1,43 @@
-var API_URL = 'https://move-it-ccprc.herokuapp.com/api'
+//var API_URL = 'https://move-it-ccprc.herokuapp.com/api'
+var API_URL = 'http://localhost:3000/api'
+
+var newEvent = palmettoflowEvent.newEvent
 
  angular.module('app.services', [])
 
 .factory('memberService', function($http) {
   return {
-    get: function(id) {
-      return $http.get(API_URL+'members'+id);
+    get: function(member) {
+      var ne = newEvent('members', 'get', member, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    list: function() {
+      var ne = newEvent('members', 'list', {}, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return _(result.data.object.rows).pluck('doc')
+      })
+    },
+    create: function (member) {
+      var ne = newEvent('members', 'create', member, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    update: function (member) {
+      var ne = newEvent('members', 'update', member, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    remove: function (member) {
+      var ne = newEvent('members', 'remove', member, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
     }
+
   }
 })
 

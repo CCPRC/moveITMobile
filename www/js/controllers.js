@@ -18,7 +18,18 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, assessmentsService, $state, $ionicModal) {
+.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, assessmentsService, $state, $ionicModal) {
+  memberService.list().then(function (members) {
+    //console.log(_(members).first())
+    // function addBirthMonth (member) {
+    //   member.birthMonth = moment(member.dob).month()
+    //   return member
+    // }
+    //
+    // members = members.map(addBirthMonth)
+
+    $scope.members = members
+  })
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
