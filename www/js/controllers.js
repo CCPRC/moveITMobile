@@ -18,7 +18,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, assetService, $state, $ionicModal) {
+.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, assessmentsService, $state, $ionicModal) {
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
@@ -72,15 +72,15 @@ angular.module('app.controllers', [])
    }
 
 
-   $ionicPlatform.ready(function() {
-         assetService.initDB();
-
-       // Get all asset records from the database.
-        assetService.getAllAssets().then(function(assets) {
-          $scope.assets = assets;
-           console.log($scope.assets)
-       });
-   });
+  //  $ionicPlatform.ready(function() {
+  //        assessmentsService.initDB();
+   //
+  //      // Get all asset records from the database.
+  //       assessmentsService.getAllAssets().then(function(assets) {
+  //         $scope.assets = assets;
+  //          console.log($scope.assets)
+  //      });
+  //  });
 
    $ionicModal.fromTemplateUrl('templates/editAssmt.html', {
          scope: $scope,
@@ -93,7 +93,8 @@ angular.module('app.controllers', [])
 
    console.log($scope.memberAssessment);
 
-   assetService.addAsset($scope.memberAssessment);
+   assessmentsService.post($scope.memberAssessment);
+   //assetService.addAsset($scope.memberAssessment);
 }
 
 
