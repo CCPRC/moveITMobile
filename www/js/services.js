@@ -1,9 +1,30 @@
-//var API_URL = 'https://move-it-ccprc.herokuapp.com/api'
-var API_URL = 'http://localhost:3000/api'
+var API_URL = 'https://move-it-ccprc.herokuapp.com/api'
+//var API_URL = 'http://localhost:3000/api'
 
 var newEvent = palmettoflowEvent.newEvent
 
  angular.module('app.services', [])
+
+
+ // .factory ('StorageService', function ($localStorage) {
+ // var _getAll = function () {
+ //   return $localStorage.things;
+ // };
+ // var _add = function (thing) {
+ //   $localStorage.things.push(thing);
+ //   console.log(thing);
+ //   console.log(thing._id);
+ // }
+ // var _remove = function (thing) {
+ //   $localStorage.things.splice($localStorage.things.indexOf(thing), 1);
+ // }
+ // return {
+ //     getAll: _getAll,
+ //     add: _add,
+ //     remove: _remove
+ //   };
+ // })
+
 
 .factory('memberService', function($http) {
   return {
@@ -40,6 +61,9 @@ var newEvent = palmettoflowEvent.newEvent
 
   }
 })
+
+
+
 
 .factory('coursesService', function($http) {
   return {

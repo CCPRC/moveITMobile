@@ -18,7 +18,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('membersTabDefaultPageCtrl', function($scope, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, assessmentsService, $state, $ionicModal) {
+.controller('membersTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, assessmentsService, $ionicModal, store) {
   memberService.list().then(function (members) {
     //console.log(_(members).first())
     // function addBirthMonth (member) {
@@ -30,6 +30,53 @@ angular.module('app.controllers', [])
 
     $scope.members = members
   })
+
+
+/// ngstorage shit////////////////
+//   $localStorage = $localStorage.$default({
+//   things: []
+// });
+//
+//   $scope.things = StorageService.getAll();
+//
+//     $scope.add = function (newThing) {
+//       StorageService.add(newThing);
+//     };
+//     $scope.remove = function (thing) {
+//       StorageService.remove(thing);
+//     };
+    /// ngstorage shit/////
+
+//$scope.currentMember = {};
+
+
+// $scope.setCurrentMember = function (member) {
+//     store.set('currentMember', member)
+//   }
+  if (store.get('currentMember')) {
+    $scope.currentMember = store.get('currentMember')
+  }
+  $scope.selectCurrentMember = function (member) {
+  //  $scope.currentMember.firstName = currentMember.firstName;
+  //StorageService.add(currentMember);
+  if($scope.currentMember) {
+    $scope.currentMember = ''
+  }
+    store.set('currentMember', member);
+      console.log(member)
+    $state.go('tabsController.memberDetail');
+
+    // console.log(localStorage.getItem('currentMember'))
+    //console.log(currentMember);
+  //$scope.member = currentMember
+  // localStorage.getItem('currentMember');
+//  $scope.wtf();
+  //console.log(currentMember.firstName);
+}
+
+$scope.wtf = function() {
+  console.log( currentMember);
+}
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({

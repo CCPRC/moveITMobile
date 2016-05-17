@@ -4,7 +4,7 @@
     <br>
 <a ui-sref="tabsController.membersTabDefaultPage" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
     <div style="float:left">
-    <h4 style="">Bryant Chappelle</h4>
+    <h4 style="">{{currentMember.firstName}} {{currentMember.lastName}}</h4>
   </div>
 
     <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a>
@@ -32,57 +32,62 @@
 
 
   <ion-content style="margin-top: 70px" overflow-scroll="true" padding="true" class="has-tabs-tops">
-<div class="col text-center">
+    <!-- <ion-item ng-repeat="thing in things">
+                    {{thing.firstName}}
+                    <ion-option-button class="button-assertive ion-trash-b" ng-click="remove(thing)"></ion-option-button>
+                </ion-item> -->
+    <div class="col text-left" style="display: inline-block; width: 50%;"> {{currentMember.firstName}}
+    </div>
+<div class="col text-center" >
   <img src="img/blank-profile-picture-973460_640.png" style="width:80px; border-radius: 40px; display: inline-block" alt="">
 </div>
     <div style="padding: 10px; margin: 20px; font-size: 15px">
   <div>
-  <div class="col text-left" style="display: inline-block; width: 50%;">
     <div class="gray">First Name</div>
-    <div class="bold">Bryant</div>
+    <div class="bold">{{currentMember.firstName}}</div>
     </div>
     <div style="display: inline-block; vertical-align: top; width: 50%; float: right">
       <div class="gray">Birth Date</div>
-      <div class="bold">10. 11. 1978</div>
+      <div class="bold">{{currentMember.dob}}</div>
    </div>
    </div>
   <div>
   <div class="col text-left" style="display: inline-block; width: 50%;">
     <div class="gray">Last Name</div>
-    <div class="bold">Chappelle</div>
+    <div class="bold">{{currentMember.lastName}}</div>
     </div>
     <div style="display: inline-block; vertical-align: top; width: 50%; float: right">
       <div class="gray">Phone</div>
-      <div class="bold">555. 55. 5555</div>
+      <div class="bold">{{currentMember.phoneNumber}}</div>
    </div>
    </div>
     <div class="col text-left">
       <div class="gray">Email</div>
-      <div class="bold">billycostigan@gmail.com</div>
+      <div class="bold">{{currentMember.email}}</div>
     </div>
     <div class="col text-left">
       <div class="gray">Address</div>
-      <div class="bold">10 Main Street</div>
+      <div class="bold">{{currentMember.address}}</div>
     </div>
     <div>
     <div class="col text-left" style="display: inline-block; width: 50%;">
       <div class="gray">City</div>
-      <div class="bold">Charleston</div>
+      <div class="bold">{{currentMember.city}}</div>
       </div>
       <div style="display: inline-block; vertical-align: top; width: 50%; float: right">
         <div class="gray">State</div>
-        <div class="bold">South Carolina</div>
+        <div class="bold">{{currentMember.state}}</div>
      </div>
      </div>
     <div class="col text-left">
       <div class="gray">Zip Code</div>
-      <div class="bold">29403</div>
+      <div class="bold">{{currentMember.zipcode}}</div>
       <br>
       <!-- <div> -->
-        <div class="col text-left">
+<!--         <div class="col text-left">
       <div class="gray">Next Assessment Due</div>
       <div class="bold">04. 16. 2016</div>
-      </div>
+      </div> -->
       <!-- <div class="col text-right" style="display: inline-block;  width: 49%">
           <div class="gray">Notification</div>
           <div class="bold">04. 16. 2016</div>

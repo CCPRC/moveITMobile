@@ -106,10 +106,11 @@ angular.module('app.routes', [])
 
   .state('tabsController.memberDetail', {
     url: '/memberDetail',
+    cache: false,
     views: {
       'tab4': {
         templateUrl: 'templates/memberDetail.html',
-        controller: 'yogaClassCtrl'
+        controller: 'membersTabDefaultPageCtrl'
       }
     }
   })
