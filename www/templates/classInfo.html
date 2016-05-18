@@ -4,7 +4,7 @@
     <br>
 <a ui-sref="tabsController.classesTabDefaultPage" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
     <div style="float:left">
-    <h4 style="">Yoga</h4>
+    <h4 style="">{{currentCourse.courseName}}</h4>
   </div>
 
     <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a>
@@ -35,30 +35,33 @@
     <div style="padding: 10px; margin: 20px; font-size: 15px">
   <div class="col text-left">
     <div class="gray">ID #</div>
-    <div class="bold">8809</div>
+    <div class="bold">{{currentCourse.courseCode}}</div>
   </div>
   <div>
   <div class="col text-left" style="display: inline-block; width: 50%;">
     <div class="gray">Time</div>
-    <div class="bold">3:00 pm</div>
+    <div class="bold">{{currentCourse.hr}}:{{currentCourse.min}}</div>
     </div>
     <div style="display: inline-block; vertical-align: top; width: 50%; float: right">
       <div class="gray">Date</div>
-      <div class="bold">10. 11. 2015</div>
+      <div class="bold">not pulling in at this time</div>
    </div>
    </div>
     <div class="col text-left">
       <div class="gray">Address</div>
-      <div class="bold">44 Main Street</div>
+      <div class="bold">{{currentCourse.address}}</div>
     </div>
-    <div class="col text-left">
-      <div class="gray">City</div>
-      <div class="bold">Charleston</div>
-    </div>
-    <div class="col text-left">
-      <div class="gray">Zip Code</div>
-      <div class="bold">29403</div>
-    </div>
+    <!-- CURRENTLY CITY AND ZIPCODE NOT SEPARATE FROM ADDRESS FIELD -->
+  <!--   <div class="col text-left">
+    <div class="gray">City</div>
+    <div class="bold">{{currentCourse.city}}</div>
+  </div>
+  <div class="col text-left">
+    <div class="gray">Zip Code</div>
+    <div class="bold">29403</div>
+  </div> -->
+  <!-- CURRENTLY CITY AND ZIPCODE NOT SEPARATE FROM ADDRESS FIELD -->
+
   </div>
 
 

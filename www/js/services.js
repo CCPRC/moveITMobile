@@ -66,15 +66,78 @@ var newEvent = palmettoflowEvent.newEvent
 
 
 .factory('coursesService', function($http) {
-  return {
-    get: function(id) {
-      return $http.get(API_URL+'courses/get'+ id);
-      //OR?? return $http.get(API_URL+'courses/list'+ id);
 
+  return {
+    list: function () {
+      var ne = newEvent('courses', 'list', {}, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return _(result.data.object.rows).pluck('doc')
+      })
+    },
+    get: function (courses) {
+      var ne = newEvent('courses', 'get', course, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    create: function (course) {
+      var ne = newEvent('courses', 'create', course, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    update: function (course) {
+      var ne = newEvent('courses', 'update', course, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    remove: function (course) {
+      var ne = newEvent('courses', 'remove', course, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
     }
   }
+
+
 })
 
+.factory('classesService', function($http) {
+return {
+    list: function () {
+      var ne = newEvent('classes', 'list', {}, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return _(result.data.object.rows).pluck('doc')
+      })
+    },
+    get: function (xclass) {
+      var ne = newEvent('classes', 'get', xclass, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    create: function (xclass) {
+      var ne = newEvent('classes', 'create', xclass, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    update: function (xclass) {
+      var ne = newEvent('classes', 'update', xclass, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    },
+    remove: function (xclass) {
+      var ne = newEvent('classes', 'remove', xclass, {})
+      return $http.post(API_URL, ne).then(function (result) {
+        return result.data.object
+      })
+    }
+  }
+
+})
 .factory('assessmentsService', function($http) {
   return {
     get: function(id) {

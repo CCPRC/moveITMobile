@@ -15,6 +15,7 @@ angular.module('app.routes', [])
 
       .state('tabsController.classesTabDefaultPage', {
     url: '/classes',
+    cache: false,
     views: {
       'tab1': {
         templateUrl: 'templates/classesTabDefaultPage.html',
@@ -24,6 +25,7 @@ angular.module('app.routes', [])
   })
   .state('tabsController.classInfo' , {
     url: '/classInfo',
+    cache: false,
     views: {
       'tab1' : {
         templateUrl: 'templates/classInfo.html',
@@ -34,6 +36,7 @@ angular.module('app.routes', [])
 
   .state('tabsController.classAttendance' , {
     url: '/classAttendance',
+    cache: false,
     views: {
       'tab1' : {
         templateUrl: 'templates/classAttendance.html',
@@ -44,6 +47,7 @@ angular.module('app.routes', [])
 
   .state('tabsController.classAssess' , {
     url: '/classAssess',
+    cache: false,
     views: {
       'tab1' : {
         templateUrl: 'templates/classAssess.html',
@@ -117,6 +121,7 @@ angular.module('app.routes', [])
 
   .state('tabsController.classAssessments', {
     url: '/classAssessments',
+    cache: false,
     views: {
       'tab4': {
         templateUrl: 'templates/classAssessments.html',

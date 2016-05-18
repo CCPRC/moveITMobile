@@ -1,22 +1,46 @@
 angular.module('app.controllers', [])
 
-.controller('classesTabDefaultPageCtrl', function($scope, $ionicFilterBar) {
+.controller('classesTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, coursesService, $ionicModal, store) {
 
   $scope.date = new Date();
 
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
-       //console.log("filter");
-       //items: vm.items,
-       //update: function (filteredItems) {
-         //vm.items = filteredItems; -->
-       //},
-       //filterProperties: 'description'
      });
    };
 
+   memberService.list().then(function (members) {
+
+     $scope.members = members
+   })
+
+   coursesService.list().then(function (courses) {
+
+     $scope.courses = courses
+     console.log(courses);
+   })
+   if (store.get('currentCourse')) {
+     $scope.currentCourse = store.get('currentCourse')
+   }
+   $scope.selectCurrentCourse = function (course) {
+   //  $scope.currentMember.firstName = currentMember.firstName;
+   //StorageService.add(currentMember);
+   if($scope.currentCourse) {
+     $scope.currentCourse = ''
+   }
+     store.set('currentCourse', course);
+       console.log(course)
+     $state.go('tabsController.classInfo');
+   }
+
+
+
+
 })
+
+
+
 
 .controller('membersTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, assessmentsService, $ionicModal, store) {
   memberService.list().then(function (members) {
@@ -31,28 +55,6 @@ angular.module('app.controllers', [])
     $scope.members = members
   })
 
-
-/// ngstorage shit////////////////
-//   $localStorage = $localStorage.$default({
-//   things: []
-// });
-//
-//   $scope.things = StorageService.getAll();
-//
-//     $scope.add = function (newThing) {
-//       StorageService.add(newThing);
-//     };
-//     $scope.remove = function (thing) {
-//       StorageService.remove(thing);
-//     };
-    /// ngstorage shit/////
-
-//$scope.currentMember = {};
-
-
-// $scope.setCurrentMember = function (member) {
-//     store.set('currentMember', member)
-//   }
   if (store.get('currentMember')) {
     $scope.currentMember = store.get('currentMember')
   }

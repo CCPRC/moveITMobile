@@ -22,41 +22,50 @@
 <!-- <div class="assetTitle">ASSETS</div> -->
    </ion-header-bar>
     <ion-content class="padding">
-<a class="noUnderline" ui-sref="tabsController.classInfo"><ion-item class="card">
-<!-- <div class="item-line-positive"></div> -->
+      <!-- <ul>
+        <li ng-repeat="member in members">Members
+          <div>{{member.firstName}} {{member.lastName}} {{member.birthMonth}}</div>
+        </li>
+      </ul> -->
+      <ul>
+        <li ng-repeat="course in courses">Classes
+          <div>stuff{{course.courseName}} {{course.courseCode}}
+            {{course.onDays}}  {{course.hr}} {{course.min}}</div>
+        </li>
+      </ul>
+<a ng-click="selectCurrentCourse(course)" ng-repeat="course in courses" class="noUnderline" ui-sref="tabsController.classInfo"><ion-item class="card">
+<div class="item-line-positive"></div>
 <div class="">
 <div class="row row-no-padding">
-<!-- <div class="col col-90"> -->
-<div class="positive">Yoga </div>
-<!-- </div> -->
+<div class="col col-90">
+<div class="positive">{{course.courseName}} </div>
+</div>
 <div class="col col-10">
-<!-- <i class="icon ion-ionic positive icon-bigger"></i>
- --></div>
+<i></i></div>
 </div>
 <div style="float: left; margin-top: 5px">
-<div>ID #: 50143</div>
-<div>Size: 14 Members</div>
+<div>ID #: {{course.courseCode}}</div>
+<div>Size: {{course.attendance.length}}</div>
 </div>
 <div style="float: right; margin-top: 5px">
-<div>Time: 3:00 pm</div>
-<div>Date: 10 . 11 . 15</div>
+<div>Time: {{course.hr}}:{{course.min}}</div>
+<div>Date: Not pulling in current dates at this time</div>
 </div>
 <br>
 <br>
 <br>
-<div class="location">Location: 44 Main Street, Charleston, SC 29403</div>
+<div class="location">Location: {{course.address}}</div>
 </div>
 </ion-item></a>
-<a class="noUnderline" href="#/classInfo"><ion-item class="card">
-<!-- <div class="item-line-positive"></div> -->
+<!-- <a class="noUnderline" href="#/classInfo"><ion-item class="card">
+<div class="item-line-positive"></div>
 <div class="">
 <div class="row row-no-padding">
-<!-- <div class="col col-90"> -->
+<div class="col col-90">
 <div class="positive">Pilates</div>
-<!-- </div> -->
+</div>
 <div class="col col-10">
-<!-- <i class="icon ion-ionic positive icon-bigger"></i>
- --></div>
+<i class="icon ion-ionic positive icon-bigger"></i></div>
 </div>
 <div style="float: left; margin-top: 5px">
 <div>ID #: 50143</div>
@@ -71,17 +80,16 @@
 <br>
 <div class="location">Location: 44 Main Street, Charleston, SC 29403</div>
 </div>
-</ion-item></a>
-<a class="noUnderline" href="#/classInfo"><ion-item class="card">
-<!-- <div class="item-line-positive"></div> -->
+</ion-item></a> -->
+<!-- <a class="noUnderline" href="#/classInfo"><ion-item class="card">
+<div class="item-line-positive"></div>
 <div class="">
 <div class="row row-no-padding">
-<!-- <div class="col col-90"> -->
+<div class="col col-90">
 <div class="positive">Cycling</div>
-<!-- </div> -->
+</div>
 <div class="col col-10">
-<!-- <i class="icon ion-ionic positive icon-bigger"></i>
- --></div>
+<i class="icon ion-ionic positive icon-bigger"></i></div>
 </div>
 <div style="float: left; margin-top: 5px">
 <div>ID #: 50143</div>
@@ -96,6 +104,6 @@
 <br>
 <div class="location">Location: 44 Main Street, Charleston, SC 29403</div>
 </div>
-</ion-item></a>
+</ion-item></a> -->
 </ion-content>
 </ion-view>
