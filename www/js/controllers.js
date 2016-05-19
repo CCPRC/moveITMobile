@@ -55,6 +55,13 @@ angular.module('app.controllers', [])
     $scope.members = members
   })
 
+  // assessmentsService.list().then(function (assessments) {
+  //   $scope.assessments = assessments
+  //   console.log(assessments);
+  // })
+
+
+
   if (store.get('currentMember')) {
     $scope.currentMember = store.get('currentMember')
   }
@@ -76,9 +83,11 @@ angular.module('app.controllers', [])
   //console.log(currentMember.firstName);
 }
 
-$scope.wtf = function() {
-  console.log( currentMember);
-}
+assessmentsService.get($scope.currentMember._id).then(function (memberAssessments) {
+    $scope.memberAssessments = memberAssessments
+    console.log(memberAssessments)
+  })
+
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
@@ -90,19 +99,6 @@ $scope.wtf = function() {
        //filterProperties: 'description'
      });
    };
-
-
-   $scope.showEditView = function (b) {
-
-     console.log(b);
-
-    // $state.go('tabsController.editAssmt')
-         $scope.currentAssessment = b;
-      ///   $scope.action = 'Edit';
-      //   $scope.isAdd = false;
-         $scope.editModal.show()
-       }
-  // var newAssessment = {}
 
    $scope.memberAssessment = {
      'location': '',
@@ -141,66 +137,6 @@ $scope.wtf = function() {
   //          console.log($scope.assets)
   //      });
   //  });
-
-   $ionicModal.fromTemplateUrl('templates/editAssmt.html', {
-         scope: $scope,
-         animation: 'slide-in-up'
-     }).then(function(modal) {
-         $scope.editModal = modal;
-     });
-
-   $scope.addNewAssessment = function () {
-
-   console.log($scope.memberAssessment);
-
-   assessmentsService.post($scope.memberAssessment);
-   //assetService.addAsset($scope.memberAssessment);
-}
-
-
-$scope.hideEditModal = function() {
-    console.log("clicked");
-    $scope.editModal.hide();
-    }
-
-//memberAssessment.date = new Date().toISOString();
-
-$scope.newScan = {};
-
-  $scope.$watch('newScan.receivedDate', function(unformattedDate){
-      $scope.newScan.formattedReceivedDate = $filter('date')(unformattedDate, 'dd/MM/yyyy HH:mm');
-      });
-
-
-$scope.openDatePicker = function() {
-$scope.tmp = {};
-$scope.tmp.newDate = $scope.newAssessment.receivedDate;
-
-var receivedDatePopup = $ionicPopup.show({
-  template: '<datetimepicker ng-model="tmp.newDate"></datetimepicker>',
-  title: "Received date",
-  scope: $scope,
-  buttons: [
-    { text: 'Cancel' },
-    {
-   text: '<b>Save</b>',
-   type: 'button-positive',
-   onTap: function(e) {
-     $scope.newScan.receivedDate = $scope.tmp.newDate;
-     console.log($scope.tmp.newDate);
-     var rDate = $scope.newScan.receivedDate;
-     $scope.isoDate = rDate.toISOString();
-   //  console.log($scope.isoDate);
-     $scope.form.received_date = $scope.isoDate
-   //  console.log($scope.form.received_date);
-     // localStorage.setItem("received_date", ISO2);
-
-   }
- }
-]
-});
-}
-
 
 
 
