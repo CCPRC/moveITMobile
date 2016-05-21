@@ -43,6 +43,8 @@ angular.module('app.controllers', [])
 
 
 .controller('membersTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, assessmentsService, $ionicModal, store) {
+
+
   memberService.list().then(function (members) {
     //console.log(_(members).first())
     // function addBirthMonth (member) {
@@ -88,6 +90,23 @@ assessmentsService.get($scope.currentMember._id).then(function (memberAssessment
     console.log(memberAssessments)
   })
 
+  if(store.get('currentAssessment')) {
+    var myAssessment = store.get('currentAssessment')
+    $scope.currentAssessment = myAssessment.doc
+    console.log('this is current', $scope.currentAssessment)
+  } else { console.log('no assessment')}
+  $scope.selectMemberAssessment = function (memberAssessment) {
+  //  $scope.currentMember.firstName = currentMember.firstName;
+  //StorageService.add(currentMember);
+  if($scope.currentAssessment) {
+    $scope.currentAssessment = ''
+  }
+    store.set('currentAssessment', memberAssessment);
+      console.log('this is selectedAssessment', memberAssessment)
+      console.log(memberAssessment.doc.armCurl);
+      $state.go('tabsController.assessmentDetail');
+}
+
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
@@ -100,32 +119,32 @@ assessmentsService.get($scope.currentMember._id).then(function (memberAssessment
      });
    };
 
-   $scope.memberAssessment = {
-     'location': '',
-     'class': '',
-     'time': '',
-     'trainer': '',
-     'chairTest': '',
-     'chairTest1': '',
-     'chairTest2': '',
-     'sixMinWalk': '',
-     'eightFoot1': '',
-     'eightFoot2': '',
-     'turnRight': '',
-     'turnLeft': '',
-     'armCurl': '',
-     'heightFt':'',
-     'heightIn': '',
-     'weight': '',
-     'diastolic': '',
-     'systolic': '',
-     'waistCirc': '',
-     'hipCirc': '',
-     'date': new Date().toISOString(),
-     'type': 'assessments',
-     //'parent_id': $scope.currentMember._id
-     'parent_id': "363409ecdc9e546b409605465421c7e6"
-   }
+  //  $scope.memberAssessment = {
+  //    'location': '',
+  //    'class': '',
+  //    'time': '',
+  //    'trainer': '',
+  //    'chairTest': '',
+  //    'chairTest1': '',
+  //    'chairTest2': '',
+  //    'sixMinWalk': '',
+  //    'eightFoot1': '',
+  //    'eightFoot2': '',
+  //    'turnRight': '',
+  //    'turnLeft': '',
+  //    'armCurl': '',
+  //    'heightFt':'',
+  //    'heightIn': '',
+  //    'weight': '',
+  //    'diastolic': '',
+  //    'systolic': '',
+  //    'waistCirc': '',
+  //    'hipCirc': '',
+  //    'date': new Date().toISOString(),
+  //    'type': 'assessments',
+  //    //'parent_id': $scope.currentMember._id
+  //    'parent_id': "363409ecdc9e546b409605465421c7e6"
+  //  }
 
 
   //  $ionicPlatform.ready(function() {

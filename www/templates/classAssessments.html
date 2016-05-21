@@ -33,7 +33,7 @@
 
    <ion-content style="margin-top: 80px" class="assetView" overflow-scroll="true" padding="true" class="has-tabs-tops">
          <ion-list ng-repeat="memberAssessment in memberAssessments">
-                 <a href="#/assessmentDetail" class="noUnderline"><ion-item class="card">
+                 <a ng-click="selectMemberAssessment(memberAssessment)" class="noUnderline"><ion-item class="card">
                  <div class="item-line-positive"></div>
                  <div class="item item-text-wrap">
                  <div class="row row-no-padding">

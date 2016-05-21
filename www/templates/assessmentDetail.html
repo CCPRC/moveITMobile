@@ -1,84 +1,170 @@
-<ion-view hide-nav-bar="true"  title="Classes Tab Default Page">
-    <!-- <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <ion-list></ion-list>
-        <ion-list>
-            <ion-item ui-sref="tabsController.yogaClass">Yoga</ion-item>
-            <ion-item>Crossfit</ion-item>
-            <ion-item>Item 3</ion-item>
-        </ion-list>
-    </ion-content> -->
-    <ion-header-bar class="" style="height: 50px">
+<ion-view hide-nav-bar="true"  title="Assessments Tab Default Page">
 
-    <div class="col text-left">
-        <a  ui-sref="tabsController.classAssessments" style="text-decoration: none; margin-top: 5px"><div id="glass" class="ion-close-round" style="font-size:25px; margin-right: 5px;"></div></a>
-      </div>
-      <div>
-    <h3 style="font-family: Raleway; margin-top: 5px">Chair Stand</h3>
+  <ion-header-bar class="bar-light" style="height: 100px">
+    <br>
+ <a ui-sref="tabsController.classAssessments" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
+    <div style="float:left">
+    <h4 style="">{{currentMember.firstName}} {{currentMember.lastName}}</h4>
   </div>
-  <div class="col text-center">
-  </div>
+
+    <!-- <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a> -->
+
+
+ <br>
+
+  <div style="width: 100%; position: absolute; left: 0px">
+  <a ui-sref="tabsController.memberDetail"><div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
+<!--  <div>INFO</div>
+--> </div></a>
+ <a ui-sref="tabsController.notes">
+ <div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
+<!--  <div>NOTES</div>
+--> </div></a>
+ <a ui-sref="tabsController.classAssessments">
+ <div style="width: 32.5%; margin-top: 30px; color: black; display: inline-block; text-align: center">
+<!--  <div>ASSESSMENTS</div>
+--> <!-- <div class="upperTabLine"style=""></div> -->
+ </div></a>
+ <div class="fancy-line"></div>
+
+
+</div>
    </ion-header-bar>
+  <ion-content style="margin-top: 40px" overflow-scroll="true" padding="true" class="has-header">
 
-<ion-content style="" overflow-scroll="true" padding="true" class="has-tabs-tops">
-  <ion-list>
-    <a href="#/assessmentDetail" style="text-decoration: none"><ion-item style="height:70px" toggle-class="">
-      <div style="">
-    <div class="chair">6 stands</div>
-     <div  class="stands" action="" style="">
-       <div>02. 12. 15</div>
-  </div>
-  </div>
-</ion-item></a>
-<a href="#/assessmentDetail" style="text-decoration: none"><ion-item style="height:70px" toggle-class="">
-  <div style="">
-<div class="chair">6 stands</div>
- <div  class="stands" action="" style="">
-   <div>02. 12. 15</div>
-</div>
-</div>
-</ion-item></a>
-<a href="#/assessmentDetail" style="text-decoration: none"><ion-item style="height:70px" toggle-class="">
-  <div style="">
-<div class="chair">6 stands</div>
- <div  class="stands" action="" style="">
-   <div>02. 12. 15</div>
-</div>
-</div>
-</ion-item></a>
-<a href="#/assessmentDetail" style="text-decoration: none"><ion-item style="height:70px" toggle-class="">
-  <div style="">
-<div class="chair">6 stands</div>
- <div  class="stands" action="" style="">
-   <div>02. 12. 15</div>
-</div>
-</div>
-</ion-item></a>
-<a href="#/assessmentDetail" style="text-decoration: none"><ion-item style="height:70px" toggle-class="">
-  <div style="">
-<div class="chair">6 stands</div>
- <div  class="stands" action="" style="">
-   <div>02. 12. 15</div>
-</div>
-</div>
-</ion-item></a>
-<a href="#/assessmentDetail" style="text-decoration: none"><ion-item style="height:70px" toggle-class="">
-  <div style="">
-<div class="chair">6 stands</div>
- <div  class="stands" action="" style="">
-   <div>02. 12. 15</div>
-</div>
-</div>
-</ion-item></a>
-  </ion-list>
-  </ion-content>
-  <ion-footer-bar ng-click"saveAssess()" align-title="" class="bar-positive" style="height: 55px">
-     <div class="buttons">
-      <div style="font-size: 20px; margin-top: 10px; margin-left:5px">Add New</div>
-    </div>
-    <h1 class="title" style="text-align: center"></h1>
-     <div class="buttons" ng-click="doSomething()">
-       <div style="font-size: 40px; margin-top: 10px">+</div>
-    </div>
-  </ion-footer-bar>
+ <!-- <ion-content overflow-scroll="true" padding="true" class="has-header; assetView"> -->
+     <form class="list">
+       <ion-item style="height: 100px; border: none;">
+       <div class="assetLeft">
+       <!-- <a ng-click="startScan()"></a> -->
+      <div style="margin-top: 15px; margin-bottom: 15px; color:#6CACE4; font-weight: bold; font-size: 24px">Assessment</div>
+       <!-- <div type="text" ng-model="form.barcode" style="font-size: 35px; font-weight: bold; margin-top: 5px">{{form.barcode}}</div> -->
+       </div>
+       <!-- <div class="assetRight">
+       <a ng-click="startScan()" style="text-decoration: none"><div class="icon ion ion-ios-barcode-outline" style="font-size:55px; margin-right: 5px"></div></a>
+       </div> -->
+       </ion-item>
+         <div style="width: 100%; border-top: 3px solid #ededed; top: 80px;"></div>
+         <!-- <ion-list> -->
+             <label class="item item-input assetItem">
+                 <span class="input-label">Location</span>
+                 <div>{{currentAssessment.location}}</div>
+             </label>
+               <div class="assetListLine"></div>
+             <label class="item item-input assetItem">
+                 <span class="input-label">Class</span>
+                 <div>{{currentAssessment.class}}</div>
+             </label>
+             <div class="assetListLine"></div>
+           <label class="item item-input assetItem">
+               <span class="input-label">Date</span>
+<!--                <div>{{currentAssessment.date | date: 'MM/dd/yyyy h:mma'}}
+ -->                 <div>{{currentAssessment.date | date: 'MM/dd/yyyy'}} </div>
+ </div>
+           </label>
+               <div class="assetListLine"></div>
+             <label class="item item-input assetItem">
+                 <span class="input-label">Time</span>
+                 <div>{{currentAssessment.date | date: 'h:mma'}}</div>
+             </label>
+             <div class="assetListLine"></div>
+           <label class="item item-input assetItem">
+               <span class="input-label">Trainer</span>
+               <div>{{currentAssessment.trainer}}</div>
+           </label>
+           <div class="assetListLine"></div>
+         <label class="item item-input assetItem">
+             <span class="input-label">Chair Stand Test</span>
+              <div>{{currentAssessment.chairTest}}</div>
+         </label>
+           <div class="assetListLine"></div>
+         <label class="item item-input assetItem">
+             <span class="input-label">Chair Stand Test 1</span>
+             <div>{{currentAssessment.chairTest1}} in 30 seconds</div>
+         </label>
+           <div class="assetListLine"></div>
+         <label class="item item-input assetItem">
+             <span class="input-label">Chair Stand Test 2</span>
+             <div>{{currentAssessment.chairTest2}} in 30 seconds</div>
+         </label>
+         <div class="assetListLine"></div>
+       <label class="item item-input assetItem">
+           <span class="input-label">Six Minute Walk</span>
+           <div>{{currentAssessment.sixMinWalk}} in 30 seconds</div>
+       </label>
+         <div class="assetListLine"></div>
+       <label class="item item-input assetItem">
+           <span class="input-label">Eight Foot Up and Go</span>
+           <div>{{currentAssessment.eightFoot1}} inches</div>
+       </label>
+       <div class="assetListLine"></div>
+     <label class="item item-input assetItem">
+         <span class="input-label">Eight Foot Up and Go</span>
+         <div>{{currentAssessment.eightFoot2}} inches</div>
+     </label>
+     <div class="assetListLine"></div>
+     <label class="item item-input assetItem">
+       <span class="input-label">Turn Test 360 Right</span>
+       <div>{{currentAssessment.turnRight}} inches</div>
+     </label>
+     <div class="assetListLine"></div>
+   <label class="item item-input assetItem">
+       <span class="input-label">Turn Test 360 Left</span>
+       <div>{{currentAssessment.turnLeft}} inches</div>
+   </label>
+   <div class="assetListLine"></div>
+   <label class="item item-input assetItem">
+     <span class="input-label">Stand On One Leg</span>
+     <div>{{currentAssessment.standOnOneLeg}} steps</div>
+   </label>
+   <div class="assetListLine"></div>
+ <label class="item item-input assetItem">
+     <span class="input-label">Arm Curl</span>
+     <div>{{currentAssessment.armCurl}} in 30 seconds</div>
+ </label>
+ <div class="assetListLine"></div>
+<label class="item item-input assetItem">
+   <span class="input-label">Height</span>
+   <div>{{currentAssessment.heightFt}} ft</div>
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Height</span>
+  <div>{{currentAssessment.heightIn}} inches</div>
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Weight</span>
+  <div>{{currentAssessment.weight}} lbs</div>
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Systolic</span>
+  <div>{{currentAssessment.systolic}}</div>
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Diastolic</span>
+  <div>{{currentAssessment.diastolic}}</div>
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Waist Circumference</span>
+  <div>{{currentAssessment.waistCirc}}</div>
+</label>
+<div class="assetListLine"></div>
+<label class="item item-input assetItem">
+  <span class="input-label">Hip Circumference</span>
+  <div>{{currentAssessment.hipCirc}}</div>
+</label>
+<div class="assetListLine"></div>
 
-</ion-view>
+<<!-- div ng-click="addNewAssessment()" style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Submit</div></div> -->
+
+
+
+
+     </form>
+     <div style="height: 40px"></div>
+
+  </ion-view>

@@ -130,6 +130,18 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.assessmentDetail', {
+    url: '/assessmentDetail',
+    cache: false,
+    views: {
+      'tab4': {
+        templateUrl: 'templates/assessmentDetail.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
+
+
   .state('tabsController.memberAssmt', {
     url: '/memberAssmt',
     views: {
@@ -155,7 +167,7 @@ angular.module('app.routes', [])
     views: {
       'tab4': {
         templateUrl: 'templates/notes.html',
-        controller: 'yogaClassCtrl'
+        controller: 'membersTabDefaultPageCtrl'
       }
     }
   })
@@ -223,14 +235,6 @@ angular.module('app.routes', [])
         templateUrl: 'templates/assessDropdown.html',
         controller: 'yogaClassCtrl'
     })
-
-
-
-      .state('assessmentDetail', {
-          url: '/assessmentDetail',
-          templateUrl: 'templates/assessmentDetail.html',
-          controller: 'yogaClassCtrl'
-        })
 
 
   .state('tabsClassController', {
