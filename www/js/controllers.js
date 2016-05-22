@@ -42,10 +42,11 @@ angular.module('app.controllers', [])
 
 
 
-.controller('membersTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, assessmentsService, $ionicModal, store, keenService) {
+.controller('membersTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, $ionicModal, store, assessmentsService) {
 
 
   memberService.list().then(function (members) {
+    console.log(members);
     //console.log(_(members).first())
     // function addBirthMonth (member) {
     //   member.birthMonth = moment(member.dob).month()
@@ -75,19 +76,22 @@ angular.module('app.controllers', [])
   }
     store.set('currentMember', member);
       console.log(member)
+  //  $scope.getAssessments();
     $state.go('tabsController.memberDetail');
+
 }
 
 assessmentsService.get($scope.currentMember._id).then(function (memberAssessments) {
-    $scope.memberAssessments = memberAssessments
-    console.log(memberAssessments)
-  })
+     $scope.memberAssessments = memberAssessments
+     console.log(memberAssessments)
+   })
 
   if(store.get('currentAssessment')) {
     var myAssessment = store.get('currentAssessment')
     $scope.currentAssessment = myAssessment.doc
     console.log('this is current', $scope.currentAssessment)
   } else { console.log('no assessment')}
+
   $scope.selectMemberAssessment = function (memberAssessment) {
 
   if($scope.currentAssessment) {
@@ -101,48 +105,58 @@ assessmentsService.get($scope.currentMember._id).then(function (memberAssessment
 
 ////// create new assessment////
 
-$scope.addNewAssessment = function (memberAssessment) {
-console.log(memberAssessment);
-    var newAssessment = {}
-    newAssessment = {
-      'location': memberAssessment.locationVal,
-      'class': memberAssessment.class,
-      'time': memberAssessment.time,
-      'trainer': memberAssessment.trainer,
-      'chairTest': memberAssessment.chairTest,
-      'chairTest1': memberAssessment.chairTest1,
-      'chairTest2': memberAssessment.chairTest2,
-      'sixMinWalk': memberAssessment.sixMinWalk,
-      'eightFoot1': memberAssessment.eightFoot1,
-      'eightFoot2': memberAssessment.eightFoot2,
-      'turnRight': memberAssessment.turnRight,
-      'turnLeft': memberAssessment.turnLeft,
-      'armCurl': memberAssessment.armCurl,
-      'heightFt': memberAssessment.heightFt,
-      'heightIn': memberAssessment.heightIn,
-      'weight': memberAssessment.weight,
-      'diastolic': memberAssessment.diastolic,
-      'systolic': memberAssessment.systolic,
-      'waistCirc': memberAssessment.waistCirc,
-      'hipCirc': memberAssessment.hipCirc,
-      'date': memberAssessment.date,
-      'type': 'assessment',
-      'parent_id': $scope.currentMember._id
-    }
-    assessmentsService.create(newAssessment)
+// $scope.addNewAssessment = function (memberAssessment) {
+// console.log(memberAssessment);
+//     var newAssessment = {}
+//     newAssessment = {
+//       'location': memberAssessment.locationVal,
+//       'class': memberAssessment.class,
+//       'time': memberAssessment.time,
+//       'trainer': memberAssessment.trainer,
+//       'chairTest': memberAssessment.chairTest,
+//       'chairTest1': memberAssessment.chairTest1,
+//       'chairTest2': memberAssessment.chairTest2,
+//       'sixMinWalk': memberAssessment.sixMinWalk,
+//       'eightFoot1': memberAssessment.eightFoot1,
+//       'eightFoot2': memberAssessment.eightFoot2,
+//       'turnRight': memberAssessment.turnRight,
+//       'turnLeft': memberAssessment.turnLeft,
+//       'armCurl': memberAssessment.armCurl,
+//       'heightFt': memberAssessment.heightFt,
+//       'heightIn': memberAssessment.heightIn,
+//       'weight': memberAssessment.weight,
+//       'diastolic': memberAssessment.diastolic,
+//       'systolic': memberAssessment.systolic,
+//       'waistCirc': memberAssessment.waistCirc,
+//       'hipCirc': memberAssessment.hipCirc,
+//       'date': new Date().toISOString(),
+//       'type': 'assessment',
+//       'parent_id': $scope.currentMember._id
+//     }
+//     assessmentsService.create(newAssessment)
+//
+//     ///.then(function (res) {
+//     //   var metric = newAssessment
+//     //   keen.saveMetrics(metric)
+//     //   $state.transitionTo($state.current, $stateParams, {
+//     //     reload: true,
+//     //     inherit: false,
+//     //     notify: true
+//     //   })
+//     // })
+//   }
 
-    ///.then(function (res) {
-    //   var metric = newAssessment
-    //   keen.saveMetrics(metric)
-    //   $state.transitionTo($state.current, $stateParams, {
-    //     reload: true,
-    //     inherit: false,
-    //     notify: true
-    //   })
-    // })
-  }
-
-
+  // $scope.deleteAssessment = function (currentAssessment) {
+  //   console.log(currentAssessment);
+  //   assessmentsService.remove(currentAssessment)
+  //   //$state.go('tabsController.classAssessments');
+  // }
+  //
+  // $scope.updateAssessment = function (currentAssessment) {
+  //   console.log(currentAssessment);
+  //   assessmentsService.update(currentAssessment)
+  //   //$state.go('tabsController.classAssessments');
+  // }
 
 
 
@@ -216,16 +230,6 @@ console.log(memberAssessment);
 
 })
 
-.controller('classCtrl', function($scope, $ionicFilterBar){
-  $scope.date = new Date();
-
-
-
-})
-
-.controller('yogaClassCtrl', function($scope) {
-
-})
 
 .controller('loginCtrl', function($scope) {
 

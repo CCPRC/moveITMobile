@@ -141,6 +141,7 @@
 
 
 .suggestionBubble {
+  width: 100%;
   font-size: 12px;
   background-color: #145fd7 ;
   color: white;

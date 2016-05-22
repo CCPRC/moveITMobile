@@ -7,8 +7,8 @@
     <h4 style="">{{currentMember.firstName}} {{currentMember.lastName}}</h4>
   </div>
 
-    <!-- <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a> -->
-
+  <!-- <a class="col text-right" ng-click="deleteAssessment(currentAssessment)"><div id="dots" class="ion-ios-trash-outline" style="font-size:25px; color: black; display: inline-block;"></div></a>
+   -->
 
  <br>
 
@@ -159,10 +159,7 @@
 </label>
 <div class="assetListLine"></div>
 
-<!-- div ng-click="addNewAssessment()" style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Submit</div></div> -->
-
-
-
+<div ui-sref="tabsController.memberAssessmentEdit" style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Update</div></div>
 
      </form>
      <div style="height: 40px"></div>

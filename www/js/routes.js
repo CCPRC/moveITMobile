@@ -55,47 +55,6 @@ angular.module('app.routes', [])
       }
     }
   })
-///// /////////// Lightning Tab/////////////////////
-
-
-  // .state('classAssess', {
-  //     url: '/classAssess',
-  //     templateUrl: 'templates/classAssess.html',
-  //     controller: 'yogaClassCtrl'
-  // })
-
-  // .state('classAttendance', {
-  //     url: '/classAttendance',
-  //     templateUrl: 'templates/classAttendance.html',
-  //     controller: 'yogaClassCtrl'
-  //   })
-  // .state('classInfo', {
-  //     url: '/classInfo',
-  //     templateUrl: 'templates/classInfo.html',
-  //     controller: 'yogaClassCtrl'
-  //
-  //   })
-
-
-  // .state('tabsController.assessmentsTabDefaultPage', {
-  //   url: '/assessments',
-  //   views: {
-  //     'tab2': {
-  //       templateUrl: 'templates/assessmentsTabDefaultPage.html',
-  //       controller: 'assessmentsTabDefaultPageCtrl'
-  //     }
-  //   }
-  // })
-
-  // .state('tabsController.measurementsTabDefaultPage', {
-  //   url: '/measurements',
-  //   views: {
-  //     'tab3': {
-  //       templateUrl: 'templates/measurementsTabDefaultPage.html',
-  //       controller: 'measurementsTabDefaultPageCtrl'
-  //     }
-  //   }
-  // })
 
 ///////// HEAD TAB//////////////////////////////////
   .state('tabsController.membersTabDefaultPage', {
@@ -152,6 +111,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.memberAssessmentEdit', {
+    url: '/memberAssmtEdit',
+    views: {
+      'tab4': {
+        templateUrl: 'templates/memberAssessmentEdit.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
+
   .state('tabsController.editAssmt', {
     url: '/editAssmt',
     views: {
@@ -198,12 +167,6 @@ angular.module('app.routes', [])
     }
   })
 
-
-  /////////////////Notifications TAB/////////////////
-
-
-///////////////// MESSAGES TAB/////////////////////////
-
   .state('tabsController.messageTabDefaultPage', {
     url: '/messages',
     views: {
@@ -213,47 +176,6 @@ angular.module('app.routes', [])
       }
     }
   })
-/////////////////  MESSAGES TAB//////////////////
-
-
-
-
-    .state('memberListAssess', {
-        url: '/memberListAssess',
-        templateUrl: 'templates/memberListAssess.html',
-        controller: 'yogaClassCtrl'
-    })
-
-    .state('assessMembers', {
-        url: '/assessMembers',
-        templateUrl: 'templates/assessMembers.html',
-        controller: 'yogaClassCtrl'
-    })
-
-    .state('assessDrpopdown', {
-        url: '/assessDropdown',
-        templateUrl: 'templates/assessDropdown.html',
-        controller: 'yogaClassCtrl'
-    })
-
-
-  .state('tabsClassController', {
-    url: '/tabsClass',
-    templateUrl: 'templates/classTabsController.html',
-    abstract: true
-  })
-
-  .state('tabsClassController.classInfo', {
-    url: '/classInfo',
-    views: {
-      'tab1': {
-        templateUrl: 'templates/classInfo.html',
-        controller: 'yogaClassCtrl'
-      }
-    }
-  })
-
-
 
   .state('login', {
     url: '/login',
