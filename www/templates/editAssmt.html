@@ -1,10 +1,10 @@
-<ion-modal-view>
+<ion-view>
 
   <ion-header-bar class="bar-light" style="height: 100px">
     <br>
- <a ng-click="hideEditModal()" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
+ <a ng-click="" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
     <div style="float:left">
-    <h4 style="">Bryant Chappelle</h4>
+    <h4 style="">{{currentMember.firstName}} {{currentMember.lastName}}</h4>
   </div>
 
     <!-- <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a> -->
@@ -160,38 +160,7 @@
 <div class="assetListLine"></div>
 
 <div ng-click="addNewAssessment()" style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Submit</div></div>
-
-
-
-          <!--  <div class="assetListLine"></div>
-          <label class="item item-select assetItem">
-           <span class="input-label">Department</span>
-           <select name="department_id" id="department_id" ng-model="form.department_id" ng-value="form.department_id">
-             <option ng-repeat="deptOption in deptOptions">{{deptOption.name}}</option>
-             </select>
-                    </label>
-          <div class="assetListLine"></div>
-          <label class="item item-select assetItem">
-            <span class="input-label">Person Responsible </span>
-
-             <select name="person_responsible_id" id="person_responsible_id" ng-model="form.person_responsible_id"  ng-value="form.person_responsible_id">
-                  <option value="1">Philip J Fry</option>
-                  <option value="2">Amy Wong</option>
-                  <option value="3">Dr. Zoidberg</option>
-              </select>
-          </label>
-          <div class="assetListLine"></div>
-          <label class="item item-select assetItem">
-                <span class="input-label">Category</span>
-                  <select name="category_id" id="category_id" ng-model="form.category_id" ng-value="form.category_id">
-                    <option value= "1">Computer</option>
-                    <option value= "2">Robots</option>
-                    <option value= "3">Spaceship</option>
-                  </select>
-                </label> -->
-<!--            <div class="assetListLine"></div>
- -->       <!--   <a href="#/tabs/page11"><button class="button button-stable button-block ">Close</button></a> -->
      </form>
      <div style="height: 40px"></div>
 
-  </ion-modal-view>
+  </ion-view>

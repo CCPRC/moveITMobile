@@ -105,58 +105,59 @@ assessmentsService.get($scope.currentMember._id).then(function (memberAssessment
 
 ////// create new assessment////
 
-// $scope.addNewAssessment = function (memberAssessment) {
-// console.log(memberAssessment);
-//     var newAssessment = {}
-//     newAssessment = {
-//       'location': memberAssessment.locationVal,
-//       'class': memberAssessment.class,
-//       'time': memberAssessment.time,
-//       'trainer': memberAssessment.trainer,
-//       'chairTest': memberAssessment.chairTest,
-//       'chairTest1': memberAssessment.chairTest1,
-//       'chairTest2': memberAssessment.chairTest2,
-//       'sixMinWalk': memberAssessment.sixMinWalk,
-//       'eightFoot1': memberAssessment.eightFoot1,
-//       'eightFoot2': memberAssessment.eightFoot2,
-//       'turnRight': memberAssessment.turnRight,
-//       'turnLeft': memberAssessment.turnLeft,
-//       'armCurl': memberAssessment.armCurl,
-//       'heightFt': memberAssessment.heightFt,
-//       'heightIn': memberAssessment.heightIn,
-//       'weight': memberAssessment.weight,
-//       'diastolic': memberAssessment.diastolic,
-//       'systolic': memberAssessment.systolic,
-//       'waistCirc': memberAssessment.waistCirc,
-//       'hipCirc': memberAssessment.hipCirc,
-//       'date': new Date().toISOString(),
-//       'type': 'assessment',
-//       'parent_id': $scope.currentMember._id
-//     }
-//     assessmentsService.create(newAssessment)
-//
-//     ///.then(function (res) {
-//     //   var metric = newAssessment
-//     //   keen.saveMetrics(metric)
-//     //   $state.transitionTo($state.current, $stateParams, {
-//     //     reload: true,
-//     //     inherit: false,
-//     //     notify: true
-//     //   })
-//     // })
-//   }
+$scope.addNewAssessment = function (memberAssessment) {
+console.log(memberAssessment);
+    var newAssessment = {}
+    newAssessment = {
+      'location': memberAssessment.locationVal,
+      'class': memberAssessment.class,
+      'time': memberAssessment.time,
+      'trainer': memberAssessment.trainer,
+      'chairTest': memberAssessment.chairTest,
+      'chairTest1': memberAssessment.chairTest1,
+      'chairTest2': memberAssessment.chairTest2,
+      'sixMinWalk': memberAssessment.sixMinWalk,
+      'eightFoot1': memberAssessment.eightFoot1,
+      'eightFoot2': memberAssessment.eightFoot2,
+      'turnRight': memberAssessment.turnRight,
+      'turnLeft': memberAssessment.turnLeft,
+      'armCurl': memberAssessment.armCurl,
+      'heightFt': memberAssessment.heightFt,
+      'heightIn': memberAssessment.heightIn,
+      'weight': memberAssessment.weight,
+      'diastolic': memberAssessment.diastolic,
+      'systolic': memberAssessment.systolic,
+      'waistCirc': memberAssessment.waistCirc,
+      'hipCirc': memberAssessment.hipCirc,
+      'date': new Date().toISOString(),
+      'type': 'assessment',
+      'parent_id': $scope.currentMember._id
+    }
+    assessmentsService.create(newAssessment)
 
-  // $scope.deleteAssessment = function (currentAssessment) {
-  //   console.log(currentAssessment);
-  //   assessmentsService.remove(currentAssessment)
-  //   //$state.go('tabsController.classAssessments');
-  // }
+    ///.then(function (res) {
+    //   var metric = newAssessment
+    //   keen.saveMetrics(metric)
+    //   $state.transitionTo($state.current, $stateParams, {
+    //     reload: true,
+    //     inherit: false,
+    //     notify: true
+    //   })
+    // })
+  }
+
+  $scope.deleteAssessment = function (currentAssessment) {
+    console.log(currentAssessment);
+    console.log(currentAssessment._id);
+    assessmentsService.remove(currentAssessment._id)
+    //$state.go('tabsController.classAssessments');
+  }
   //
-  // $scope.updateAssessment = function (currentAssessment) {
-  //   console.log(currentAssessment);
-  //   assessmentsService.update(currentAssessment)
-  //   //$state.go('tabsController.classAssessments');
-  // }
+  $scope.updateAssessment = function (currentAssessment) {
+    console.log(currentAssessment);
+  //  assessmentsService.update(currentAssessment)
+    //$state.go('tabsController.classAssessments');
+  }
 
 
 
