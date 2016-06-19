@@ -100,6 +100,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.notes', {
+    url: '/notes',
+    cache: false,
+    views: {
+      'tab4': {
+        templateUrl: 'templates/notes.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
 
   .state('tabsController.memberAssmt', {
     url: '/memberAssmt',
@@ -131,15 +141,7 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.notes', {
-    url: '/notes',
-    views: {
-      'tab4': {
-        templateUrl: 'templates/notes.html',
-        controller: 'membersTabDefaultPageCtrl'
-      }
-    }
-  })
+
 
 
   // .state('classAssessments', {

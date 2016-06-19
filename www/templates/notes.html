@@ -4,7 +4,7 @@
     <br>
 <a ui-sref="tabsController.membersTabDefaultPage" style="text-decoration: none; height: 10px"><div id="glass" class="ion-ios-arrow-left" style="font-size:35px; margin-left: 10px; margin-right: 15px; color: black"></div> </a>
     <div style="float:left">
-    <h4 style="">William Costigan</h4>
+      <h4 style="">{{currentMember.firstName}} {{currentMember.lastName}}</h4>
   </div>
 
     <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a>
@@ -16,7 +16,7 @@
 <div>INFO</div>
 </div></a>
  <a ui-sref="tabsController.notes">
-<div style="width: 32.5%; margin-top: 50px; color: black; display: inline-block; text-align: center">
+<div style="width: 32.5%; margin-top: 50px; color: blue; display: inline-block; text-align: center">
 <div>NOTES</div>
 <div class="upperTabLine"style=""></div>
 
@@ -32,10 +32,28 @@
    </ion-header-bar>
 
 
-  <ion-content style="margin-top: 70px" overflow-scroll="true" padding="true" class="has-tabs-tops">
-<h1>Notes -- need mockup</h1>
-
-
-    </ion-content>
-
-</ion-view>
+   <ion-content style="margin-top: 60px" class="assetView" overflow-scroll="true" padding="true" class="has-tabs-tops">
+         <ion-list ng-repeat="memberNote in memberNotes">
+                 <a ng-click="selectNote(memberNote)" class="noUnderline"><ion-item class="card">
+                 <div class="item-line-positive"></div>
+                 <div class="item item-text-wrap">
+                 <div class="row row-no-padding">
+                 <div class="col col-90">
+                 <h2 class="positive chairLeft">{{memberNote.doc.message}} </h2>
+                 <!-- <div class="chairRight">+1</div> -->
+                 </div>
+                 <div class="col col-10">
+                 <i></i></div>
+                 </div>
+                 <br>
+                 <div>
+                <!--  <p>Last Result: 6 in 30 seconds </p>
+                <p>Date: 02. 12. 15</p> -->
+                 </div>
+                 </div>
+                 </ion-item></a>
+          </ion-list>
+</ion-content>
+<ion-footer-bar style="margin-bottom:60px;">
+   <div ui-sref="tabsController.memberAssmt" style="text-decoration: none;display:block; width: 100%"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 60px;line-height: 50px; margin-top: 40px">Add New Assessment</div></div>
+ </ion-footer-bar>

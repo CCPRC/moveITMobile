@@ -22,17 +22,17 @@
 <!-- <div class="assetTitle">ASSETS</div> -->
    </ion-header-bar>
     <ion-content class="padding">
-       <ul>
-        <li ng-repeat="member in members">Members
-          <div>{{member.firstName}} {{member.lastName}} {{member.birthMonth}}</div>
-        </li>
-      </ul>
-      <ul>
-        <li ng-repeat="course in courses">Classes
-          <div>stuff{{course.courseName}} {{course.courseCode}}
-            {{course.onDays}}  {{course.hr}} {{course.min}}</div>
-        </li>
-      </ul>
+      <!--  <ul>
+       <li ng-repeat="member in members">Members
+         <div>{{member.firstName}} {{member.lastName}} {{member.birthMonth}}</div>
+       </li>
+            </ul> -->
+    <!--   <ul>
+      <li ng-repeat="course in courses">Classes
+        <div>stuff{{course.courseName}} {{course.courseCode}}
+          {{course.onDays}}  {{course.hr}} {{course.min}}</div>
+      </li>
+    </ul> -->
 <a ng-click="selectCurrentCourse(course)" ng-repeat="course in courses" class="noUnderline" ui-sref="tabsController.classInfo"><ion-item class="card">
 <div class="item-line-positive"></div>
 <div class="">

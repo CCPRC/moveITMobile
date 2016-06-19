@@ -7,6 +7,7 @@
     <h4 style="">{{currentMember.firstName}} {{currentMember.lastName}}</h4>
   </div>
 
+<a class="col text-right" ng-click="deleteAssessment(currentAssessment)"><div id="dots" class="ion-ios-trash-outline" style="font-size:25px; color: black; display: inline-block;"></div></a>
     <!-- <a class="col text-right" ng-click="openPopover($event)"><div id="dots" class="ion-android-more-vertical dots-icon" style="font-size:25px; color: black; display: inline-block;"></div></a> -->
 
 
@@ -37,7 +38,7 @@
        <ion-item style="height: 100px; border: none;">
        <div class="assetLeft">
        <!-- <a ng-click="startScan()"></a> -->
-      <div style="margin-top: 15px; margin-bottom: 15px; color:#6CACE4; font-weight: bold; font-size: 24px">Assessment</div>
+      <div style="margin-top: 15px; margin-bottom: 15px; color:#6CACE4; font-weight: bold; font-size: 24px">Assessment: {{currentAssessment.date | date: MM/dd/yyyy}}</div>
        <!-- <div type="text" ng-model="form.barcode" style="font-size: 35px; font-weight: bold; margin-top: 5px">{{form.barcode}}</div> -->
        </div>
        <!-- <div class="assetRight">
@@ -160,7 +161,7 @@
 <div class="assetListLine"></div>
 
 
-<div ui-sref="tabsController.memberAssessmentEdit" style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Update</div></div>
+<div ng-click="updateAssessment(currentAssessment)"style="text-decoration: none;display:block;"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 70px;line-height: 50px;width: 100%; margin-top: 40px">Update This Assessment</div></div>
 
      </form>
      <div style="height: 40px"></div>

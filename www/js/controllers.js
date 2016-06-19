@@ -42,7 +42,7 @@ angular.module('app.controllers', [])
 
 
 
-.controller('membersTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, $ionicModal, store, assessmentsService) {
+.controller('membersTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, $ionicModal, store, assessmentsService, notesService) {
 
 
   memberService.list().then(function (members) {
@@ -80,11 +80,23 @@ angular.module('app.controllers', [])
     $state.go('tabsController.memberDetail');
 
 }
-
+if($scope.currentMember) {
 assessmentsService.get($scope.currentMember._id).then(function (memberAssessments) {
      $scope.memberAssessments = memberAssessments
      console.log(memberAssessments)
    })
+}else {
+  console.log("no member");
+}
+
+if($scope.currentMember) {
+notesService.get($scope.currentMember._id).then(function (memberNotes) {
+     $scope.memberNotes = memberNotes
+     console.log("notes", memberNotes)
+   })
+}else {
+  console.log("no member");
+}
 
   if(store.get('currentAssessment')) {
     var myAssessment = store.get('currentAssessment')
@@ -99,7 +111,7 @@ assessmentsService.get($scope.currentMember._id).then(function (memberAssessment
   }
     store.set('currentAssessment', memberAssessment);
       console.log('this is selectedAssessment', memberAssessment)
-      console.log(memberAssessment.doc.armCurl);
+    //  console.log(memberAssessment.doc.armCurl);
       $state.go('tabsController.assessmentDetail');
 }
 
@@ -134,6 +146,8 @@ console.log(memberAssessment);
       'parent_id': $scope.currentMember._id
     }
     assessmentsService.create(newAssessment)
+    $state.go('tabsController.classAssessments');
+
 
     ///.then(function (res) {
     //   var metric = newAssessment
@@ -150,13 +164,13 @@ console.log(memberAssessment);
     console.log(currentAssessment);
     console.log(currentAssessment._id);
     assessmentsService.remove(currentAssessment._id)
-    //$state.go('tabsController.classAssessments');
+    $state.go('tabsController.classAssessments');
   }
   //
   $scope.updateAssessment = function (currentAssessment) {
     console.log(currentAssessment);
-  //  assessmentsService.update(currentAssessment)
-    //$state.go('tabsController.classAssessments');
+    assessmentsService.update(currentAssessment)
+    $state.go('tabsController.classAssessments');
   }
 
 
