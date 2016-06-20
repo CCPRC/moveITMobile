@@ -39,6 +39,8 @@
                  <div class="item item-text-wrap">
                  <div class="row row-no-padding">
                  <div class="col col-90">
+                   <h2>{{memberNote.doc.date | date:"MM/dd/yyyy 'at' h:mma"}}</h2>
+                   <br>
                  <h2 class="positive chairLeft">{{memberNote.doc.message}} </h2>
                  <!-- <div class="chairRight">+1</div> -->
                  </div>
@@ -55,5 +57,5 @@
           </ion-list>
 </ion-content>
 <ion-footer-bar style="margin-bottom:60px;">
-   <div ui-sref="tabsController.memberAssmt" style="text-decoration: none;display:block; width: 100%"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 60px;line-height: 50px; margin-top: 40px">Add New Assessment</div></div>
+   <div ui-sref="tabsController.newNote" style="text-decoration: none;display:block; width: 100%"><div class="suggestionBubble" id="submitButton" style="text-align:center;height: 60px;line-height: 50px; margin-top: 40px">Add New Note</div></div>
  </ion-footer-bar>

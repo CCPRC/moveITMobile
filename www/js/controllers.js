@@ -44,6 +44,8 @@ angular.module('app.controllers', [])
 
 .controller('membersTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, $ionicModal, store, assessmentsService, notesService) {
 
+  $scope.date = new Date();
+
 
   memberService.list().then(function (members) {
     console.log(members);
@@ -173,14 +175,50 @@ console.log(memberAssessment);
     $state.go('tabsController.classAssessments');
   }
 
+  $scope.updateNote = function (currentNote) {
+    console.log(currentNote);
+    notesService.update(currentNote)
+    $state.go('tabsController.notes');
+  }
+
+  $scope.deleteNote = function (currentNote) {
+    notesService.remove(currentNote._id)
+    $state.go('tabsController.notes');
+  }
+
+  $scope.addNewNote = function (memberNote) {
+    console.log(memberNote);
+    var newNote = {}
+    newNote = {
+      'date': $scope.date,
+      'message': memberNote.message,
+      'type': 'note',
+      'parent_id': $scope.currentMember._id
+    }
+    console.log(newNote);
+    notesService.create(newNote).then(function (res) {
+      $state.go('tabsController.notes')
+    })
+  }
+
+  if(store.get('currentNote')) {
+     var myAssessment = store.get('currentNote')
+     $scope.currentNote = myAssessment.doc
+     console.log('this is current', $scope.currentNote)
+   } else { console.log('no bite')}
 
 
+  $scope.selectNote = function (memberNote) {
 
-/////////////// causes 404 Error///////////////
-// keenService.getMetrics($scope.currentMember._id, function(res) {
-//     console.log(res)
-//   })
-/////////////// causes 404 Error///////////////
+  if($scope.currentNote) {
+    $scope.currentNote = ''
+  }
+    store.set('currentNote', memberNote);
+      console.log('this is selectedNote', memberNote)
+    //  console.log(memberAssessment.doc.armCurl);
+      $state.go('tabsController.noteDetail');
+  }
+
 
 
   $scope.showFilterBar = function () {

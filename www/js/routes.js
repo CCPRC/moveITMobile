@@ -111,6 +111,28 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.newNote', {
+    url: '/newNote',
+    cache: false,
+    views: {
+      'tab4': {
+        templateUrl: 'templates/newNote.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.noteDetail', {
+    url: '/noteDetail',
+    cache: false,
+    views: {
+      'tab4': {
+        templateUrl: 'templates/noteDetail.html',
+        controller: 'membersTabDefaultPageCtrl'
+      }
+    }
+  })
+
   .state('tabsController.memberAssmt', {
     url: '/memberAssmt',
     views: {

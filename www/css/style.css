@@ -169,4 +169,8 @@
 .popup-body .datetimepicker table {
   width: 100%;
 }
-/
+
+textarea {
+  border: solid grey;
+  
+}

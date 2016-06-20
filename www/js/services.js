@@ -146,6 +146,7 @@ var newEvent = palmettoflowEvent.newEvent
         })
       },
       update: function (note) {
+        console.log(note);
         var ne = newEvent('notes', 'update', note, {})
         return $http.post(API_URL, ne).then(function (result) {
           return result.data.object
