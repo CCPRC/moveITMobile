@@ -4,9 +4,15 @@ angular.module('app.controllers', [])
 
   $scope.date = new Date();
 
+
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
+       items: $scope.courses,
+       update: function (filteredItems) {
+         $scope.courses = filteredItems;
+       },
+       filterProperties: 'courseName'
      });
    };
 
@@ -224,54 +230,13 @@ console.log(memberAssessment);
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
-       //console.log("filter");
-       //items: vm.items,
-       //update: function (filteredItems) {
-         //vm.items = filteredItems; -->
-       //},
-       //filterProperties: 'description'
+       items: $scope.members,
+       update: function (filteredItems) {
+         $scope.members = filteredItems;
+       },
+       filterProperties: 'lastName'
      });
    };
-
-  //  $scope.memberAssessment = {
-  //    'location': '',
-  //    'class': '',
-  //    'time': '',
-  //    'trainer': '',
-  //    'chairTest': '',
-  //    'chairTest1': '',
-  //    'chairTest2': '',
-  //    'sixMinWalk': '',
-  //    'eightFoot1': '',
-  //    'eightFoot2': '',
-  //    'turnRight': '',
-  //    'turnLeft': '',
-  //    'armCurl': '',
-  //    'heightFt':'',
-  //    'heightIn': '',
-  //    'weight': '',
-  //    'diastolic': '',
-  //    'systolic': '',
-  //    'waistCirc': '',
-  //    'hipCirc': '',
-  //    'date': new Date().toISOString(),
-  //    'type': 'assessments',
-  //    //'parent_id': $scope.currentMember._id,
-  //  }
-
-
-  //  $ionicPlatform.ready(function() {
-  //        assessmentsService.initDB();
-   //
-  //      // Get all asset records from the database.
-  //       assessmentsService.getAllAssets().then(function(assets) {
-  //         $scope.assets = assets;
-  //          console.log($scope.assets)
-  //      });
-  //  });
-
-
-
 
 })
 
