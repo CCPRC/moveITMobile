@@ -44,6 +44,9 @@ angular.module('app.controllers', [])
 
    attendanceService.list().then(function (attendance) {
      $scope.lists = [];
+     $scope.students = [];
+     $scope.student = [];
+     $scope.pupil = [];
      $scope.attendance = attendance
 $scope.currentCourse = store.get('currentCourse')
 //  console.log($scope.attendance);
@@ -51,11 +54,27 @@ $scope.currentCourse = store.get('currentCourse')
 
      var attendanceLength = ($scope.attendance).length;
            for (var i = 0; i < attendanceLength; i++) {
-             console.log(attendance[i]);
+             console.log(attendance[i].attendees);
 
-   if(attendance[i].parent_id === $scope.currentCourse._id) {
+   if(attendance[i].parent_id === $scope.currentCourse._id)  {
+     if ($scope.lists.indexOf(attendance[i]) == -1) {
+
      $scope.lists.push(attendance[i]);
-console.log($scope.lists);
+     console.log($scope.lists);
+
+     $scope.students.push(attendance[i].attendees);
+     console.log($scope.students);
+
+
+///// this separates out students///// but i a getting dupes
+     var studentsLength = ($scope.students).length;
+           for (var i = 0; i < studentsLength; i++) {
+             console.log($scope.students[i]);
+             $scope.pupils = $scope.students[i]
+
+}
+
+}
    }
     }
 })
