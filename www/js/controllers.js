@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
 
-.controller('classesTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, coursesService, $ionicModal, store) {
+.controller('classesTabDefaultPageCtrl', function($scope, $state, $ionicFilterBar, $ionicPlatform, $filter, $ionicPopup, memberService, coursesService, $ionicModal, store, attendanceService) {
 
   $scope.date = new Date();
 
@@ -39,6 +39,42 @@ angular.module('app.controllers', [])
        console.log(course)
      $state.go('tabsController.classInfo');
    }
+
+
+
+   attendanceService.list().then(function (attendance) {
+     $scope.lists = [];
+     $scope.attendance = attendance
+$scope.currentCourse = store.get('currentCourse')
+//  console.log($scope.attendance);
+    //  console.log(attendance);
+
+     var attendanceLength = ($scope.attendance).length;
+           for (var i = 0; i < attendanceLength; i++) {
+             console.log(attendance[i]);
+
+   if(attendance[i].parent_id === $scope.currentCourse._id) {
+     $scope.lists.push(attendance[i]);
+console.log($scope.lists);
+   }
+    }
+})
+    $scope.deleteAttendance = function (item) {
+      console.log("deleting");
+      console.log(item._id);
+      attendanceService.remove(item._id)
+    //  $state.go('tabsController.classAssessments');
+    }
+  //  if($scope.currentCourse) {
+  //  attendanceService.get($scope.currentCourse._id).then(function (attendances) {
+  //       $scope.attendances = attendances
+  //       console.log("attendances", attendances)
+  //     })
+  //  }else {
+  //    console.log("no member");
+  //  }
+
+
 
 
 
