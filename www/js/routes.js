@@ -1,6 +1,6 @@
 angular.module('app.routes', [])
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, authProvider, $httpProvider, jwtInterceptorProvider) {
 
   $ionicConfigProvider.tabs.position('bottom');
 
@@ -44,6 +44,28 @@ angular.module('app.routes', [])
       }
     }
   })
+
+  .state('tabsController.pupils' , {
+    url: '/pupils',
+    cache: false,
+    views: {
+      'tab1' : {
+        templateUrl: 'templates/pupils.html',
+        controller: 'classesTabDefaultPageCtrl'
+      }
+    }
+  })
+
+  .state('tabsController.walkIn' , {
+    url: '/walkIn',
+    cache: false,
+    views: {
+      'tab1' : {
+        templateUrl: 'templates/walkIn.html',
+        controller: 'classesTabDefaultPageCtrl'
+      }
+    }
+})
 
   .state('tabsController.classAssess' , {
     url: '/classAssess',
@@ -181,25 +203,25 @@ angular.module('app.routes', [])
   })
 
 /////////////////Notifications TAB/////////////////
-  .state('tabsController.notiTabDefaultPage', {
-    url: '/notifications',
-    views: {
-      'tab2': {
-        templateUrl: 'templates/notiTabDefaultPage.html',
-        controller: 'membersTabDefaultPageCtrl'
-      }
-    }
-  })
-
-  .state('tabsController.messageTabDefaultPage', {
-    url: '/messages',
-    views: {
-      'tab3': {
-        templateUrl: 'templates/messageTabDefaultPage.html',
-        controller: 'membersTabDefaultPageCtrl'
-      }
-    }
-  })
+  // .state('tabsController.notiTabDefaultPage', {
+  //   url: '/notifications',
+  //   views: {
+  //     'tab2': {
+  //       templateUrl: 'templates/notiTabDefaultPage.html',
+  //       controller: 'membersTabDefaultPageCtrl'
+  //     }
+  //   }
+  // })
+  //
+  // .state('tabsController.messageTabDefaultPage', {
+  //   url: '/messages',
+  //   views: {
+  //     'tab3': {
+  //       templateUrl: 'templates/messageTabDefaultPage.html',
+  //       controller: 'membersTabDefaultPageCtrl'
+  //     }
+  //   }
+  // })
 
   .state('login', {
     url: '/login',
@@ -210,6 +232,11 @@ angular.module('app.routes', [])
 // $urlRouterProvider.otherwise('/page1/classes')
 $urlRouterProvider.otherwise('/login')
 
+authProvider.init({
+     domain: 'lincs.auth0.com',
+     clientID: 'lq46sSY5hOnTQ5hngSyUXPvPyvSqpvaC',
+     loginState: 'login'
+   });
 
 
 

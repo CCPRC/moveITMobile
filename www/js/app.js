@@ -5,9 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'angular-storage', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'jett.ionic.filter.bar', 'ui.bootstrap.datetimepicker'])
+angular.module('app', ['ionic',  'auth0', 'angular-storage', 'angular-jwt', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'jett.ionic.filter.bar', 'ui.bootstrap.datetimepicker'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, auth, store, jwtHelper, $location) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -19,4 +19,38 @@ angular.module('app', ['ionic', 'angular-storage', 'app.controllers', 'app.route
       StatusBar.styleDefault();
     }
   });
+
+    auth.hookEvents();
+    //This event gets triggered on URL change
+       var refreshingToken = null;
+       $rootScope.$on('$locationChangeStart', function () {
+         var token = store.get('token');
+         var refreshToken = store.get('refreshToken');
+         if (token) {
+           if (!jwtHelper.isTokenExpired(token)) {
+             if (!auth.isAuthenticated) {
+               auth.authenticate(store.get('profile'), token);
+             }
+           } else {
+             if (refreshToken) {
+               if (refreshingToken === null) {
+                 refreshingToken = auth.refreshIdToken(refreshToken).then(function (idToken) {
+                   store.set('token', idToken);
+                   auth.authenticate(store.get('profile'), idToken);
+                 }).finally(function () {
+                   refreshingToken = null;
+                 });
+               }
+               return refreshingToken;
+             } else {
+               $location.path('/login');
+             }
+           }
+         }
+       });
+
+
+
+
+
 })

@@ -35,19 +35,21 @@
   <ion-content style="margin-top: 40px" overflow-scroll="true" padding="true" class="has-tabs-tops">
 
 
-    <a ng-click="deleteAttendance(item)" ng-repeat="list in lists track by $index" class="noUnderline" ui-sref="tabsController.classInfo"><ion-item class="card">
+    <a  ng-repeat="list in lists track by $index" class="noUnderline"
+    ng-click="saveAndJump(list)"><ion-item class="card">
     <div class="item-line-positive"></div>
     <div class="">
     <div class="row row-no-padding">
     <div class="col col-90">
-    <div class="positive">{{list.date | date:"MM/dd/yyyy 'at' h:mma"}} </div>
+      <div style="height: 10px"></div>
+    <div style="padding: 5px" class="positive">{{list.date | date:"MM/dd/yyyy 'at' h:mma"}} </div>
     </div>
     <div class="col col-10">
     <i></i></div>
     </div>
     <div style="float: left; margin-top: 5px">
 <!--     <div>ID #: {{list.courseName}}</div>
- -->    <div>Size: {{list.attendees.length}}</div>
+-->    <div>Members Enrolled: {{list.attendees.length}}</div>
     </div>
     <div style="float: right; margin-top: 5px">
   <!--   <div>Time: {{course.hr}}:{{course.min}}</div>
@@ -94,51 +96,25 @@
 
 
 
-    <ion-toggle ng-repeat='pupil in pupils' style="height:70px" toggle-class="">
-       <div style="">
-       <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
-     <div class="attend"> {{pupil.firstName}} {{pupil.lastName}}</div>
-         </div>
-     </ion-toggle>
-    <!--   <ion-toggle style="height:70px" toggle-class="">
-      <div style="">
-      <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
-    <div class="attend">Colin Sullivan</div>
-        </div>
-    </ion-toggle>
-    <ion-toggle style="height:70px" toggle-class="">
-      <div style="">
-      <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
-    <div class="attend">Sean Dignam</div>
-        </div>
-    </ion-toggle>
-    <ion-toggle style="height:70px" toggle-class="">
-      <div style="">
-      <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
-    <div class="attend">Captain Queenan</div>
-        </div>
-    </ion-toggle>
-    <ion-toggle style="height:70px" toggle-class="">
-      <div style="">
-      <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
-    <div class="attend">Frank Costello</div>
-        </div>
-    </ion-toggle> -->
-
-
-    </ion-list>
+  <!--   <ion-toggle ng-repeat='pupil in pupils' style="height:70px" toggle-class="">
+     <div style="">
+     <img src="img/blank-profile-picture-973460_640.png" class="attendImg" alt="">
+   <div class="attend"> {{pupil.firstName}} {{pupil.lastName}}</div>
+       </div>
+   </ion-toggle>
+  </ion-list> -->
 
 
     </ion-content>
-    <ion-footer-bar ng-click"saveAssess()" align-title="" class="bar-positive" style="height: 55px">
-       <div class="buttons">
-        <div style="font-size: 20px; margin-top: 10px; margin-left:5px">Add Walk Ins</div>
-      </div>
-      <h1 class="title" style="text-align: center"></h1>
-       <div class="buttons" ng-click="doSomething()">
-         <div style="font-size: 40px; margin-top: 10px">+</div>
-      </div>
-    </ion-footer-bar>
+  <!--   <ion-footer-bar ng-click"saveAssess()" align-title="" class="bar-positive" style="height: 55px">
+    <div class="buttons">
+     <div style="font-size: 20px; margin-top: 10px; margin-left:5px">Add Walk Ins</div>
+          </div>
+          <h1 class="title" style="text-align: center"></h1>
+    <div class="buttons" ng-click="doSomething()">
+      <div style="font-size: 40px; margin-top: 10px">+</div>
+          </div>
+  </ion-footer-bar> -->
 
 
 </ion-view>

@@ -4,7 +4,7 @@ angular.module('app.controllers', [])
 
   $scope.date = new Date();
 
-
+  $scope.pupils = [];
   $scope.showFilterBar = function () {
     console.log("filter");
      filterBarInstance = $ionicFilterBar.show({
@@ -40,59 +40,90 @@ angular.module('app.controllers', [])
      $state.go('tabsController.classInfo');
    }
 
-
-
-   attendanceService.list().then(function (attendance) {
-     $scope.lists = [];
+   if(store.get('currentList')) {
+     console.log('current', store.get('currentList'))
+     $scope.currentList = store.get('currentList')
+     for (var i = 0; i < $scope.currentList.attendees.length; i++) {
+       $scope.pupils.push($scope.currentList.attendees[i])
+       console.log('hello atten', $scope.pupils)
+     }
+   }
+   $scope.updateAttendance = function () {
+     $scope.currentList.attendees = $scope.pupils
+     console.log($scope.currentList)
+     attendanceService.update($scope.currentList)
+   }
+   $scope.saveAndJump = function (list) {
+     $scope.currentList = list
+     store.set('currentList', list)
+     $state.go('tabsController.pupils')
+   }
+   attendanceService.getAttendanceByClass($scope.currentCourse._id).then(function (attendance) {
+     $scope.lists = attendance
+    //  if($scope.lists) {
+    //    for (var i = 0; i < $scope.lists.attendees; i++) {
+    //      $scope.pupils.push($scope.lists.attendees[i])
+    //      console.log('pupils', $scope.pupils)
+    //    }
+    //  }
      $scope.students = [];
      $scope.student = [];
-     $scope.pupil = [];
      $scope.attendance = attendance
-$scope.currentCourse = store.get('currentCourse')
 //  console.log($scope.attendance);
     //  console.log(attendance);
 
-     var attendanceLength = ($scope.attendance).length;
-           for (var i = 0; i < attendanceLength; i++) {
-             console.log(attendance[i].attendees);
+//      var attendanceLength = ($scope.attendance).length;
+//            for (var i = 0; i < attendanceLength; i++) {
+//              console.log(attendance[i]);
+//
+//    if(attendance[i].parent_id === $scope.currentCourse._id)  {
+//      if ($scope.lists.indexOf(attendance[i]) == -1) {
+//
+//      $scope.lists.push(attendance[i]);
+//      console.log($scope.lists);
+//
+//      $scope.students.push(attendance[i].attendees);
+//      console.log($scope.students);
+//
+//
+// ///// this separates out students///// but i a getting dupes
+    //  var studentsLength = ($scope.students).length;
+    //        for (var i = 0; i < studentsLength; i++) {
+    //          console.log($scope.students[i]);
+    //          $scope.pupils = $scope.students[i]
+//
+// }
+//
+// }
+//    }
+//     }
+  })
 
-   if(attendance[i].parent_id === $scope.currentCourse._id)  {
-     if ($scope.lists.indexOf(attendance[i]) == -1) {
+  $scope.addNewWalkIn = function (walkIn) {
+    console.log('current', store.get('currentList'))
+    $scope.currentList = store.get('currentList')
+    console.log($scope.currentList);
+    console.log(walkIn);
+    $scope.walkIn = walkIn;
+    $scope.walkIn.present = true;
+    console.log($scope.walkIn);
+    $scope.currentList.attendees.push($scope.walkIn)
+    console.log($scope.currentList.attendees);
+    attendanceService.update($scope.currentList)
 
-     $scope.lists.push(attendance[i]);
-     console.log($scope.lists);
-
-     $scope.students.push(attendance[i].attendees);
-     console.log($scope.students);
+  }
 
 
-///// this separates out students///// but i a getting dupes
-     var studentsLength = ($scope.students).length;
-           for (var i = 0; i < studentsLength; i++) {
-             console.log($scope.students[i]);
-             $scope.pupils = $scope.students[i]
-
-}
-
-}
-   }
-    }
-})
     $scope.deleteAttendance = function (item) {
       console.log("deleting");
       console.log(item._id);
       attendanceService.remove(item._id)
     //  $state.go('tabsController.classAssessments');
     }
-  //  if($scope.currentCourse) {
-  //  attendanceService.get($scope.currentCourse._id).then(function (attendances) {
-  //       $scope.attendances = attendances
-  //       console.log("attendances", attendances)
-  //     })
-  //  }else {
-  //    console.log("no member");
-  //  }
 
+    $scope.showPupils = function() {
+      $state.go('tabsController.pupils')
+    }
 
 
 
@@ -304,6 +335,31 @@ console.log(memberAssessment);
 })
 
 
-.controller('loginCtrl', function($scope) {
+.controller('loginCtrl', function($scope, $state, auth, store) {
 
-})
+  var vm = this;
+
+    function doLogin() {
+      auth.signin({
+        container: 'lock-container',
+        authParams: {
+          scope: 'openid offline_access',
+          device: 'Mobile device'
+        }
+      }, function (profile, token, accessToken, state, refreshToken) {
+        // Success callback
+        store.set('profile', profile);
+        store.set('token', token);
+        store.set('accessToken', accessToken);
+        store.set('refreshToken', refreshToken);
+
+         $state.go("tabsController.classesTabDefaultPage");
+      }, function () {
+        // Error callback
+      });
+    }
+
+    doLogin();
+  })
+
+//})
