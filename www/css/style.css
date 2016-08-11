@@ -1,3 +1,8 @@
+.popover {
+  height: 100px !important;
+
+}
+
 .gray {
   color: #a8a8a8;
 }
@@ -172,5 +177,5 @@
 
 textarea {
   border: solid grey;
-  
+
 }
