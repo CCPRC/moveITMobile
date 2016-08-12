@@ -43,7 +43,7 @@ angular.module('app.controllers', [])
      store.remove('token');
      store.remove('accessToken');
      store.remove('refreshToken');
-      $state.go('login');
+    $state.go('login');
     }
 
   $scope.date = new Date();
@@ -380,8 +380,14 @@ console.log(memberAssessment);
 
 
 .controller('loginCtrl', function($scope, $state, auth, store) {
+//  $window.location.reload(true)
 
-  var vm = this;
+
+     console.log("hey");
+  //   $state.go($state.current, {}, {reload: true});
+    //
+
+    var vm = this;
 
     function doLogin() {
       auth.signin({
@@ -398,10 +404,14 @@ console.log(memberAssessment);
         store.set('refreshToken', refreshToken);
 
          $state.go("tabsController.classesTabDefaultPage");
-      }, function () {
+      }, function (error) {
         // Error callback
+        console.log("there was an error");
       });
     }
+    $scope.$on('$ionic.reconnectScope', function() {
+    doLogin();
+  });
 
     doLogin();
   })
